@@ -10,7 +10,8 @@
  # 漫画/
  # 游戏/
  # 音乐/
- # 其他/？,？,其他
+ # 其他/其他
+
 == title ==
  # would-be long lint
 == part_number ==
