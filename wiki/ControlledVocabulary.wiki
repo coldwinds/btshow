@@ -12,7 +12,7 @@
  # 音乐/
  # 其他/？,？,其他
 == title ==
- # <would-be long lint>
+ # would-be long lint
 == part_number ==
  # 1
  # 2
