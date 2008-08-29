@@ -1,4 +1,4 @@
-# introduction to the strcuture and function of the database used by btshow
+ # introduction to the strcuture and function of the database used by btshow
 
 = Introduction =
 
