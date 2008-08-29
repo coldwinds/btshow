@@ -12,13 +12,13 @@
  # 音乐/
  # 其他/其他
 
-== title ==
+== tit-le ==
  # would-be long lint
 == part_number ==
  # 1
  # 2
  # ...
-== publishing_ ==
+== publish_title ==
 == publisher ==
  # （比如“无损封人组”就不是字幕组而是publisher）
 == translator ==
