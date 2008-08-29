@@ -37,7 +37,7 @@ defining possible values for a tag. NB: tagid has multiple values.
 _FIXME: user should always use english ctl_vcblr in db?_
 
 == shw_entry ==
-This table descripes all information of a upload torrent resource with various tags.
+This table describes all information of a upload torrent resource with various tags.
 
 It has 4 columns:
  # id
