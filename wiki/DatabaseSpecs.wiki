@@ -2,12 +2,50 @@
 
 = Introduction =
 
-Add your content here.
+= Tables =
+The prefix of the database is specified by user. Here we take `shw_` as example.
 
+== shw_tag ==
+This table stores information about metadata tags themselves. 
 
-= Details =
+It has 3 columns:
+ # id
+ # name
+ # control
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+`name' column has the name of tags. User can customize the organization of metadata tags.
+
+`control' means whether the tag's value are limited to a controlled vocabulary specified by user.
+
+_FIXME: user should always use english tagname in db?_
+
+ * sql to create the table:
+`CREATE TABLE shw_tag (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30), control BIT)`
+
+== shw_tag_controlled_vocabulary ==
+This table has customized controlled vocabulary of different tag.
+
+It has 2 columns:
+ # tagid
+ # value
+
+defining possible values for a tag. NB: tagid has multiple values.
+
+ * sql to create the table
+`CREATE TABLE shw_tag_controlled_vocabulary (tagid INT, value VARCHAR(30), INDEX tidx (tagid))`
+
+_FIXME: user should always use english ctl_vcblr in db?_
+
+== shw_entry ==
+This table descripes all information of a upload torrent resource with various tags.
+
+It has 4 columns:
+ # id
+ # tagid
+ # value
+ # controlled
+
+the `controlled' column indicate whether the value is in its corresponding controlled vocabulary.
+
+ * sql to create the table
+`CREATE TABLE shw_entry (id INT AUTO_INCREMENT, tagid INT, value TEXT, controlled BIT,  PRIMARY KEY(id, tagid), INDEX tidx (tagid), FULLTEXT INDEX valx (value))`
