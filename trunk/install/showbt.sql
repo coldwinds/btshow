@@ -1,20 +1,21 @@
+DROP TABLE IF EXISTS `shw_entry`;
 CREATE TABLE `shw_entry` (
   `id` int(11) unsigned NOT NULL auto_increment,
-  `type_cvid` int(11) unsigned default NULL,
-  `genre_cvid` int(11) unsigned default NULL,
-  `title_cvid` int(11) unsigned default NULL,
-  `republisher_cvid` int(11) unsigned default NULL,
-  `translator_cvid` int(11) unsigned default NULL,
-  `artist_cvid` int(11) unsigned default NULL,
-  `contributor_cvid` int(11) unsigned default NULL,
-  `language_cvid` int(11) unsigned default NULL,
-  `subtitle_language_cvid` int(11) unsigned default NULL,
-  `origin_cvid` int(11) unsigned default NULL,
-  `format_cvid` int(11) unsigned default NULL,
-  `subtitle_format_cvid` int(11) unsigned default NULL,
-  `video_codec_cvid` int(11) unsigned default NULL,
-  `audio_codec_cvid` int(11) unsigned default NULL,
-  `software_platform_cvid` int(11) unsigned default NULL,
+  `type_cv_id` int(11) unsigned default NULL,
+  `genre_cv_id` int(11) unsigned default NULL,
+  `title_cv_id` int(11) unsigned default NULL,
+  `republisher_cv_id` int(11) unsigned default NULL,
+  `translator_cv_id` int(11) unsigned default NULL,
+  `artist_cv_id` int(11) unsigned default NULL,
+  `contributor_cv_id` int(11) unsigned default NULL,
+  `language_cv_id` int(11) unsigned default NULL,
+  `subtitle_language_cv_id` int(11) unsigned default NULL,
+  `origin_cv_id` int(11) unsigned default NULL,
+  `format_cv_id` int(11) unsigned default NULL,
+  `subtitle_format_cv_id` int(11) unsigned default NULL,
+  `video_codec_cv_id` int(11) unsigned default NULL,
+  `audio_codec_cv_id` int(11) unsigned default NULL,
+  `software_platform_cv_id` int(11) unsigned default NULL,
   `part_number` int(11) unsigned default NULL,
   `video_height` int(11) unsigned default NULL,
   `video_width` int(11) unsigned default NULL,
@@ -35,20 +36,23 @@ CREATE TABLE `shw_entry` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='all metadata about the torrent entry uploaded by user.';
 
 /* XXX requiring optimization below */
+DROP TABLE IF EXISTS `shw_controlled_vocabulary`;
 CREATE TABLE `shw_controlled_vocabulary` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`tagid` INT,
-	`value` VARCHAR(255),
-	PRIMARY KEY (`id`)
-);
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `tag_id` int(11) unsigned NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 /* 
-u
 SELECT * FROM shw_controlled_vocabulary WHERE id='$id';
-
- */
-
-CREATE TABLE shw_aliasindex (
-	cvid INT,
-	alias VARCHAR(255),
-);
+*/
+DROP TABLE IF EXISTS `shw_alias_index`;
+CREATE TABLE `shw_alias_index` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `cv_id` int(11) unsigned NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `cv_id` (`cv_id`,`alias`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
