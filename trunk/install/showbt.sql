@@ -33,3 +33,22 @@ CREATE TABLE `shw_entry` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `torrent_infohash` (`torrent_infohash`(20))
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='all metadata about the torrent entry uploaded by user.';
+
+/* XXX requiring optimization below */
+CREATE TABLE `shw_controlled_vocabulary` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`tagid` INT,
+	`value` VARCHAR(255),
+	PRIMARY KEY (`id`)
+);
+/* 
+u
+SELECT * FROM shw_controlled_vocabulary WHERE id='$id';
+
+ */
+
+CREATE TABLE shw_aliasindex (
+	cvid INT,
+	alias VARCHAR(255),
+);
+
