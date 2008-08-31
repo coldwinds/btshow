@@ -19,9 +19,13 @@ POST /ajax.php
 HTTP/1.1 200 OK
 {
 {'cid':100,'username':'guest1','msg':'顶1','publish_date':2008-11-5 11:08},
+
 {'cid':100,'username':'guest2','msg':'顶2','publish_date':2008-11-5 11:07},
+
 {'cid':100,'username':'guest3','msg':'说两句','publish_date':2008-11-5 11:05},
+
 {'cid':100,'username':'guest1','msg':'顶4','publish_date':2008-11-5 11:01},
+
 {'cid':100,'username':'guest6','msg':'还是顶','publish_date':2008-11-5 11:00},
 }
 
