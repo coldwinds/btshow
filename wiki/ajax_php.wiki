@@ -20,6 +20,7 @@ POST /ajax.php
 {'tid':12321,'page',10,'action':'view'}  
 
 HTTP/1.1 200 OK
+
 {
 {'cid':100,'username':'guest1','msg':'顶1','publish_date':2008-11-5 11:08},
 
