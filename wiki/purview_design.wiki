@@ -1,33 +1,75 @@
 #labels Phase-Design
 = Introduction =
 
-default user rights table
+Default user rights table (in default_settings.php)
 
+You can change this settings in local_settings.php in the root directory.
 
 = Details =
-|| 操作(action) \ 角色(role)|| anonymous || user || groupuser || rootuser || description||
-|| 添加评论(comment-post) || A || A || A || A || post a comment of a torrent ||
-|| 删除评论(del comment) || X || X || X || A ||
-|| 查看评论者ip(comment-viewip) || X || X || X || A ||view ip of the poster in comment header ||
-|| 评论需要输入验证玛(comment-captcha) || X || X || X || A || need captcha validation when posting ||
-|| 邀请groupuser(invite-groupuser) || X|| X || X || A ||invite a person as groupuser||
-|| 邀请user(user-invite) || X|| X || A || A ||invite a person as groupuser||
-|| 删除user(user-delete) || X || X || G || A ||
-|| 发布种子(page-create) || X || S || G || A ||
-|| 编辑种子(page-edit) || X || S || G || A ||
-|| 删除种子(page-delete) || X || S || G || A ||
-|| 锁帖/解锁帖 || X || X || X || A ||
-|| 隐藏/恢复该主题的评论  || X || X || X || A ||
-|| 编辑联盟标签  || X || X || S || A ||
-|| 种子頂置  || X || X || X || A ||
+ * Priciple: *one right, once grant*
 
-|| symbel ||  meaning ||
-|| X (none)|| current role can  not do this action ||
-|| S (self)|| current role can do this action only belong to self  ||
-|| G (group) || current role can do this action only belong to his group  ||
-|| A (all) || current role can do this action. ||
+== table ==
+|| rights     \     roles || `*`     || user  || confirmed || uploader || teamleader || sysop || developer || description ||
+|| page-view              || grant   ||       ||           ||          ||            ||       ||           || view any page ||
+|| page-create            ||         ||       ||           || grant    ||            ||       ||           || create a page ||
+|| page-modify            ||         ||       ||           || grant    ||            ||       ||           || edit one's own page ||
+|| page-modify-any        ||         ||       ||           ||          ||            || grant ||           || edit any page ||
+|| page-delete            ||         ||       ||           || grant    ||            ||       ||           || delete/undelete one's own page ||
+|| page-delete-any        ||         ||       ||           ||          ||            || grant ||           || delete/undelete any page ||
+|| page-delete-purge      ||         ||       ||           ||          ||            ||       || grant     || delete any page from database ||
+|| page-star              ||         ||       ||           ||          ||            || grant ||           || star any page (so we can put it on top) ||
+|| page-rate              || grant   ||       ||           ||          ||            ||       ||           || give scores to rate any page ||
+|| page-nocomment         ||         ||       ||           || grant    ||            ||       ||           || deny/allow comment posting of one's own page ||
+|| page-nocomment-any     ||         ||       ||           ||          ||            || grant ||           || deny/allow comment posting of any page ||
+|| comment-view           || grant   ||       ||           ||          ||            ||       ||           || view comments of any page ||
+|| comment-viewip         ||         ||       ||           ||          ||            || grant ||           || view ip of the poster in a comment header ||
+|| comment-post           || grant   ||       ||           ||          ||            ||       ||           || post a comment of any page ||
+|| comment-delete         ||         ||       ||           ||          ||            ||       ||           || delete/undelete one's own comment of any page ||
+|| comment-delete-any     ||         ||       ||           ||          ||            || grant ||           || delete/undelete any comment of any page ||
+|| comment-delete-purge   ||         ||       ||           ||          ||            ||       || grant     || delete any comment of any page from database ||
+|| controlled-vocabulary  ||         ||       ||           ||          ||            || grant ||           || maintain the controlled vocabulary ||
+|| team-membership        ||         ||       ||           ||          || grant      ||       ||           || add/remove a user to/from his own team ||
+|| team-membership-any    ||         ||       ||           ||          ||            ||       ||           || add/remove a team's member to/from this team ||
+|| team-name              ||         ||       ||           ||          || grant      ||       ||           || set his own team's name and code ||
+|| team-name-any          ||         ||       ||           ||          ||            ||       ||           || set a team's name ||
+|| user-login             ||         || grant ||           ||          ||            ||       ||           || can login ||
+|| user-skipcaptcha       ||         ||       || grant     ||          ||            ||       ||           || skip captcha validation when posting ||
+|| user-rights            ||         ||       ||           ||          ||            || grant ||           || set user's role ||
+|| user-delete            ||         || grant ||           ||          ||            ||       ||           || account suicide ||
+|| user-delete-any        ||         ||       ||           ||          ||            || grant ||           || delete/undelete any account ||
+|| user-delete-purge      ||         ||       ||           ||          ||            ||       || grant     || delete any account from database ||
+|| cache-clear            ||         ||       ||           ||          ||            ||       || grant     || force to clear server's cache of file ||
 
+ * *rights*
+ # page-view: If you want your site to be private, change this.
+ # page-modify`*`: Comments of the page are not affected (whether the page is deleted). Note that an account can be used to clear out the contents of a page without delete it.
+ # page-delete: As you can undelete, you will always see deleted pages.
+ # page-star: If you'd like to put some pages above other pages.
+ # page-rate: Rating flood prohibition is built-in functionality.
+ # page-nocomment`*`: Who have this rights are not affected by this. 
+ # comment-delete: By default, an account can't delete his own comment
+ # team-membership: When a user is added to teamleader, a team is created. When the leader is removed from the team, the team is dismissed (internally just marked as dismissed). When a new leader is assigned to the team, the old leader is retired and asked to select to stay as team member or to quit. One team has only one leader at one time. One account has only one team. 
+ # team-`*`-any: It's not a good idea to grant these rights to a sysop for him interfering with a team's internal affairs. 
+ # team-`*`: How do I create a team? Add yourself to teamleader to create a team, then change the teamleader to someone and quit this team. 
+ # user-login: By default, an account such as a sysop not in user can't login.
+ # user-delete: Since you have suicided, you are not a user that can login or undelete your account. If you want to recover you account, you can ask a sysop for help.
+ # `*`-delete-purge: Permanently delete data from database. Other deletes only mark data as deleted.
+ * *roles*
+ # `*`: Anyone, including anonymous browser
+ # user: Registered people
+ # confirmed: Validated user. when an account is added to uploader, teamleader, or sysop, he is auto-confirmed.
+ 
+== typical account kinds ==
+|| `*`     || user  || confirmed || uploader || teamleader || sysop || rights ||
+|| in      ||       ||           ||          ||            ||       ||  ||
+|| in      || in    ||           ||          ||            ||       ||  ||
+|| in      || in    || in        ||          ||            ||       ||  ||
+|| in      || in    || in        || in       || in         ||       ||  ||
+|| in      || in    || in        || in       ||            || in    ||  ||
+|| in      || in    || in        || in       || in         || in    || (usually bad idea) ||
 
-= *API* =
+== API ==
+boolean get_user_purview( $user_id, $action , $symbol  )
 
-boolean get_user_purview( $user_id, $action , $symbel  )
+ * if you must use "purview", i'd use an alias function. 
+ 
