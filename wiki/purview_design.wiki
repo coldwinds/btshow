@@ -33,5 +33,5 @@ Add your content here.  Format your content with:
 || 删除任意种子 || X || X || X || O ||
 || 查看ip || X || X || X || O ||
 || 需要输入验证玛 || X || X || X || O ||
-|| 锁帖 || X || X || X || O ||
-|| 屏蔽该主题的评论  || X || X || X || O ||
+|| 锁帖/解锁帖 || X || X || X || O ||
+|| 关闭/恢复该主题的评论  || X || X || X || O ||
