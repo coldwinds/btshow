@@ -1,21 +1,26 @@
 #labels Phase-Design
-#exchange format for ajax interface
-
 = Introduction =
 
-ajax.php  interface
+ajax.php interface data exchange format for ajax 
 
-*use double quote, not single quote, as php json_decode does*
 = Details =
+*use double quote, not single quote, as php json_decode does so*
+
 == conversation sample ==
 
+=== captcha validation ===
+ # data={"action":"captcha"}
+ # {"errno":0,"contents":"<img src=\"/static/captcha/3123123.jpg\" />"}
+
 === post a comment ===
- # data={"eid":12321,"msg":"顶","action":"add"}  
+ # data={"eid":12321,"msg":"顶","captcha":"A3sC","action":"add"}
  # {"errno":0,"cid":44123}
+ * Note: "captcha" is disabled when ($sg_comment_captcha == false).
 
 === view current comments ===
  # data={"eid":12321,"page",10,"action":"view"}  
- # {"errno":0,"contents":{"cid":100,"username":"guest1","msg":"顶1","date":"2008-11-5 11:08"},{"cid":100,"username":"guest2","msg":"顶2","date":"2008-11-5 11:07"}}
+ # {"errno":0,"allow_del":"true","contents":{"cid":[100,102,107],"username":["guest1","guest2","guest3"],"msg":["顶1","顶2","顶3"],"date":["2008-11-5 11:08","2008-11-5 11:08","2008-11-5 11:08"],"ip":["127.0.0.1","127.0.0.2","127.0.0.3"]}
+ * Note: "allow_del" and "ip" are for administration, and are not required. *Iff* there is "allow_del", there will be a button for sysop to delete comment, the same with "ip".
 
 === delete a comment ===
  # data={"cid":100,"action":"del",} 
@@ -31,3 +36,4 @@ ajax.php  interface
  * 1	action not implemented
  * 2	invalid request
  * 3	not authorized
+ * 4	captcha failure
