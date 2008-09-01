@@ -10,7 +10,7 @@ ajax.php  interface
 
 POST /ajax.php
 
-data={"tid":12321,"msg":"顶","action":"add"}  
+data={"eid":12321,"msg":"顶","action":"add"}  
 
 HTTP/1.1 200 OK
 
@@ -18,7 +18,7 @@ HTTP/1.1 200 OK
 
 POST /ajax.php
 
-data={"tid":12321,"page",10,"action":"view"}  
+data={"eid":12321,"page",10,"action":"view"}  
 
 HTTP/1.1 200 OK
 
