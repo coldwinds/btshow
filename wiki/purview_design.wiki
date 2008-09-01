@@ -1,4 +1,5 @@
 #summary One-sentence summary of this page.
+#labels Phase-Design
 
 = Introduction =
 
@@ -34,4 +35,4 @@ Add your content here.  Format your content with:
 || 查看ip || X || X || X || O ||
 || 需要输入验证玛 || X || X || X || O ||
 || 锁帖/解锁帖 || X || X || X || O ||
-|| 关闭/恢复该主题的评论  || X || X || X || O ||
+|| 隐藏/恢复该主题的评论  || X || X || X || O ||
