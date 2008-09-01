@@ -21,7 +21,7 @@ default user rights table
 || 编辑联盟标签  || X || X || O || X ||
 || 种子頂置  || X || X || X || O ||
 
-|| symbel || means ||
+|| symbel ||  meaning ||
 || X || current role can  not do this action ||
 || S || current role can do this action only belong to self  ||
 || G || current role can do this action only belong to his group  ||
