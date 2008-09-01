@@ -1,13 +1,15 @@
 <?php
-function __autoload($class_name){
-	require_once('include/admin_config.php');
-}
-class sc_database{
+class db{
 	private $db;
+	private $errno;
+
 	public static $query_times = 0;
 	public $insert_id;
-	private $errno;
+	public $affected_rows;
+	public $prefix;
 	function __construct(){
+		global $sg_db_host,$sg_db_user,$sg_db_pass,$sg_db_name,$sg_db_prefix;
+		$this->prefix=$sg_db_prefix;
 		$this->db = new mysqli($sg_db_host,$sg_db_user,$sg_db_pass,$sg_db_name);
 		if($this->db->connect_errno)
 			user_error("db connecting: ({$this->db->connect_errno}) {$this->db->connect_error}",E_USER_ERROR);
@@ -49,9 +51,14 @@ class sc_database{
 			}
 		}
 		$this->errno=$this->db->errno;
+		$this->insert_id=$this->db>insert_id;
+		$this->affected_rows=$this->db->affected_rows;
 		if(!$this->errno)
 			return $ret;
 		else
 			return false;
+	}
+	public escape($s){
+		return is_string($s) ? $db->escape_string($s) : '';
 	}
 }
