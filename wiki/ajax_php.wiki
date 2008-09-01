@@ -13,7 +13,7 @@ data={"tid":12321,"msg":"顶","action":"add"}
 
 HTTP/1.1 200 OK
 
-{"is_success":"true|false"}
+{"errno":0}
 
 POST /ajax.php
 
@@ -39,4 +39,4 @@ data={"cid":100,"action":"del",}
 
 HTTP/1.1 200 OK
 
-{"is_success":"true|false"} 
+{"errno":1}  //not authorized
