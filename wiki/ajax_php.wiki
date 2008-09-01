@@ -6,6 +6,7 @@ ajax.php  interface
 
 *use double quote, not single quote, as php json_decode does*
 = Details =
+== conversation sample ==
 
 POST /ajax.php
 
@@ -39,4 +40,12 @@ data={"cid":100,"action":"del",}
 
 HTTP/1.1 200 OK
 
-{"errno":1}  //not authorized
+{"errno":1}
+
+== errno ==
+
+ * -1	unknown error
+ * 0	success
+ * 1	action not implemented
+ * 2	invalid request
+ * 3	not authorized
