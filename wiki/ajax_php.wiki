@@ -8,43 +8,23 @@ ajax.php  interface
 = Details =
 == conversation sample ==
 
-POST /ajax.php
+=== post a comment ===
+ # data={"eid":12321,"msg":"顶","action":"add"}  
+ # {"errno":0}
 
-data={"eid":12321,"msg":"顶","action":"add"}  
+=== view current comments ===
+ # data={"eid":12321,"page",10,"action":"view"}  
+ # {"errno":0,"contents":{"cid":100,"username":"guest1","msg":"顶1","date":"2008-11-5 11:08"},{"cid":100,"username":"guest2","msg":"顶2","date":"2008-11-5 11:07"}}
 
-HTTP/1.1 200 OK
+=== delete a comment ===
+ # data={"cid":100,"action":"del",} 
+ # {"errno":1}
 
-{"errno":0}
+=== post a rating ===
+ # data={"eid":12321,"rating":5,"action":"rate"}
+ # {"errno":0}
 
-POST /ajax.php
-
-data={"eid":12321,"page",10,"action":"view"}  
-
-HTTP/1.1 200 OK
-
-{"errno":0,"contents":
-
-{"cid":100,"username":"guest1","msg":"顶1","date":"2008-11-5 11:08"},
-
-{"cid":100,"username":"guest2","msg":"顶2","date":"2008-11-5 11:07"},
-
-{"cid":100,"username":"guest3","msg":"说两句","date":"2008-11-5 11:05"},
-
-{"cid":100,"username":"guest1","msg":"顶4","date":"2008-11-5 11:01"},
-
-{"cid":100,"username":"guest6","msg":"还是顶","date":"2008-11-5 11:00"},
-}
-
-POST /ajax.php
-
-data={"cid":100,"action":"del",} 
-
-HTTP/1.1 200 OK
-
-{"errno":1}
-
-== errno ==
-
+== returned errno ==
  * -1	unknown error
  * 0	success
  * 1	action not implemented
