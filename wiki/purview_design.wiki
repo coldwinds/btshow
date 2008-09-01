@@ -13,7 +13,7 @@ default user rights table
 || 删除本组user || X || X || O || O ||
 || 删除任何user || X || X || X || O ||
 || 删除groupuser || X || X ||X || O ||
-|| 发布种子 || X || X || X || O ||
+|| 发布种子 || X || O || O || O ||
 || 编辑自己种子介绍 || X || O || O || O ||
 || 编辑本组种子介绍 || X || X || O || O ||
 || 编辑任意种子介绍 || X || X || X || O ||
