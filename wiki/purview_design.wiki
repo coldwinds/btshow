@@ -18,7 +18,7 @@ default user rights table
 || 删除种子(page-delete) || X || S || G || A ||
 || 锁帖/解锁帖 || X || X || X || A ||
 || 隐藏/恢复该主题的评论  || X || X || X || A ||
-|| 编辑联盟标签  || X || X || S || X ||
+|| 编辑联盟标签  || X || X || S || A ||
 || 种子頂置  || X || X || X || A ||
 
 || symbel ||  meaning ||
