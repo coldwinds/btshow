@@ -11,7 +11,7 @@ ajax.php  interface
 
 === post a comment ===
  # data={"eid":12321,"msg":"顶","action":"add"}  
- # {"errno":0}
+ # {"errno":0,"cid":44123}
 
 === view current comments ===
  # data={"eid":12321,"page",10,"action":"view"}  
