@@ -20,13 +20,15 @@ Add your content here.  Format your content with:
 || 添加评论 || O || O || O || O || 
 || 删除评论 || X || X || X || O ||
 || 邀请groupuser || X|| X || X || O ||
-|| 邀请user || X|| X || X || O ||
+|| 邀请user || X|| X || O || O ||
 || 删除本组user || X || X || O || O ||
 || 删除任何user || X || X || X || O ||
 || 删除groupuser || X || X ||X || O ||
-|| 删除种子 || X || X || X || O ||
+|| 发布种子 || X || X || X || O ||
 || 删除自己种子 || X || O || O || O ||
-|| 发布任何种子 || X || X || X || O ||
 || 删除本组种子 || X || X || O || O ||
+|| 删除任意种子 || X || X || X || O ||
 || 查看ip || X || X || X || O ||
 || 需要输入验证玛 || X || X || X || O ||
+|| 锁帖 || X || X || X || O ||
+|| 屏蔽该主题的评论  || X || X || X || O ||
