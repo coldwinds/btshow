@@ -11,6 +11,7 @@ ajax.php interface data exchange format for ajax
 === captcha validation ===
  # data={"action":"captcha"}
  # {"errno":0,"contents":"<img src=\"/static/captcha/3123123.jpg\" />"}
+ # Note: only when there is an id "captcha", you will submit this captcha validation request.
 
 === post a comment ===
  # data={"eid":12321,"msg":"顶","captcha":"A3sC","action":"add"}
