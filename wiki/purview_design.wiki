@@ -1,22 +1,10 @@
-#summary One-sentence summary of this page.
 #labels Phase-Design
-
 = Introduction =
 
-Add your content here.
+default user rights table
 
 
 = Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
-
-
-
-
 || 角色\行为 || anonymous || user || groupuser || rootuser ||
 || 添加评论 || O || O || O || O || 
 || 删除评论 || X || X || X || O ||
