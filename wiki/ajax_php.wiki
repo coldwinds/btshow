@@ -22,7 +22,7 @@ ajax.php  interface
  # {"errno":1}
 
 === post a rating ===
- # data={"eid":12321,"rating":5,"action":"rate"}
+ # data={"eid":12321,"score":5,"action":"rate"}
  # {"errno":0}
 
 == returned errno ==
