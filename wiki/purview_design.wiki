@@ -26,3 +26,8 @@ default user rights table
 || S (self)| current role can do this action only belong to self  ||
 || G (group) || current role can do this action only belong to his group  ||
 || A (all) || current role can do this action. ||
+
+
+= *API* =
+
+boolean get_user_purview( $user_id, $action , $symbel  )
