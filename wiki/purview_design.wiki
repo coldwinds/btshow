@@ -23,7 +23,7 @@ default user rights table
 
 || symbel ||  meaning ||
 || X (none)|| current role can  not do this action ||
-|| S (self)| current role can do this action only belong to self  ||
+|| S (self)|| current role can do this action only belong to self  ||
 || G (group) || current role can do this action only belong to his group  ||
 || A (all) || current role can do this action. ||
 
