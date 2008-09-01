@@ -6,23 +6,23 @@ default user rights table
 
 = Details =
 || 操作(action) \ 角色(role)|| anonymous || user || groupuser || rootuser || description||
-|| 添加评论(comment-post) || O || O || O || O || post a comment of a torrent ||
-|| 删除评论(del comment) || X || X || X || O ||
-|| 查看评论者ip(comment-viewip) || X || X || X || O ||view ip of the poster in comment header ||
-|| 评论需要输入验证玛(comment-captcha) || X || X || X || O || need captcha validation when posting ||
-|| 邀请groupuser(invite-groupuser) || X|| X || X || O ||invite a person as groupuser||
-|| 邀请user(user-invite) || X|| X || O || O ||invite a person as groupuser||
-|| 删除user(user-delete) || X || X || O || O ||
-|| 发布种子(page-create) || X || O || O || O ||
-|| 编辑种子(page-edit) || X || O || O || O ||
-|| 删除种子(page-delete) || X || O || O || O ||
-|| 锁帖/解锁帖 || X || X || X || O ||
-|| 隐藏/恢复该主题的评论  || X || X || X || O ||
-|| 编辑联盟标签  || X || X || O || X ||
-|| 种子頂置  || X || X || X || O ||
+|| 添加评论(comment-post) || A || A || A || A || post a comment of a torrent ||
+|| 删除评论(del comment) || X || X || X || A ||
+|| 查看评论者ip(comment-viewip) || X || X || X || A ||view ip of the poster in comment header ||
+|| 评论需要输入验证玛(comment-captcha) || X || X || X || A || need captcha validation when posting ||
+|| 邀请groupuser(invite-groupuser) || X|| X || X || A ||invite a person as groupuser||
+|| 邀请user(user-invite) || X|| X || A || A ||invite a person as groupuser||
+|| 删除user(user-delete) || X || X || G || A ||
+|| 发布种子(page-create) || X || S || G || A ||
+|| 编辑种子(page-edit) || X || S || G || A ||
+|| 删除种子(page-delete) || X || S || G || A ||
+|| 锁帖/解锁帖 || X || X || X || A ||
+|| 隐藏/恢复该主题的评论  || X || X || X || A ||
+|| 编辑联盟标签  || X || X || S || X ||
+|| 种子頂置  || X || X || X || A ||
 
 || symbel ||  meaning ||
-|| X || current role can  not do this action ||
-|| S || current role can do this action only belong to self  ||
-|| G || current role can do this action only belong to his group  ||
-|| A || current role can do this action. ||
+|| X (none)|| current role can  not do this action ||
+|| S (self)| current role can do this action only belong to self  ||
+|| G (group) || current role can do this action only belong to his group  ||
+|| A (all) || current role can do this action. ||
