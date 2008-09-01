@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#exchange format for ajax interface
 
 = Introduction =
 
@@ -9,7 +9,7 @@ ajax.php  interface
 
 POST /ajax.php
 
-{'tid':12321,'msg':'顶','action':'add'}  
+data={'tid':12321,'msg':'顶','action':'add'}  
 
 HTTP/1.1 200 OK
 
@@ -17,7 +17,7 @@ HTTP/1.1 200 OK
 
 POST /ajax.php
 
-{'tid':12321,'page',10,'action':'view'}  
+data={'tid':12321,'page',10,'action':'view'}  
 
 HTTP/1.1 200 OK
 
@@ -35,7 +35,7 @@ HTTP/1.1 200 OK
 
 POST /ajax.php
 
-{'cid':100,'action':'del',} 
+data={'cid':100,'action':'del',} 
 
 HTTP/1.1 200 OK
 
