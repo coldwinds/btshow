@@ -17,11 +17,17 @@ Add your content here.  Format your content with:
 
 
 || 角色\行为 || anonymous || user || groupuser || rootuser ||
-|| 评论 || O || O || O || O || 
-|| 删除评论 || X || X || X || O ||
-||邀请groupuser || X|| X|| X|| O ||
-||邀请user || X|| X ||X || O ||
-||删除user || X || X || X || O ||
-||删除groupuser || X ||X ||X ||O ||
-||发布种子 || X ||X ||X ||O ||
-||删除种子 || X ||X ||X ||O ||
+|| 添加评论 || O || O || O || O || 
+|| 删除自己评论 || X || O || O || O ||
+|| 删除本组评论 || X || X || O || O ||
+|| 删除任何评论 || X || X || X || O ||
+|| 邀请groupuser || X|| X || X || O ||
+|| 邀请user || X|| X || X || O ||
+|| 删除本组user || X || X || O || O ||
+|| 删除任何user || X || X || X || O ||
+|| 删除groupuser || X || X ||X || O ||
+|| 删除种子 || X || X || X || O ||
+|| 删除自己种子 || X || O || O || O ||
+|| 发布任何种子 || X || X || X || O ||
+|| 删除本组种子 || X || X || O || O ||
+|| 查看ip || X || X || X || O ||
