@@ -22,7 +22,8 @@ data={"tid":12321,"page",10,"action":"view"}
 
 HTTP/1.1 200 OK
 
-{
+{"errno":0,
+
 {"cid":100,"username":"guest1","msg":"顶1","publish_date":2008-11-5 11:08},
 
 {"cid":100,"username":"guest2","msg":"顶2","publish_date":2008-11-5 11:07},
