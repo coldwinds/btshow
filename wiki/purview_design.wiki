@@ -69,7 +69,8 @@ You can change this settings in local_settings.php in the root directory.
 || in      || in    || in        || in       || in         || in    || (usually bad idea) ||
 
 == API ==
-boolean get_user_purview( $user_id, $action , $symbol  )
 
- * if you must use "purview", i'd use an alias function. 
+boolean get_rights( $user_id, $action , $context )
+
+
  
