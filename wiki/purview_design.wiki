@@ -74,27 +74,27 @@ boolean get_rights($action, $userId, $groupId, $ownerId = null, $owerGroupId = n
 
 == Code Sample==
 
-你可以拿到当前操作的  
-page 和 comment 上 保存这2个数据 ownerId ,owerGroupId
+你在操作之前 需要提供这些数据来校验权限：
+page 和 comment 上 保存这2个数据 ownerId ,owerGroupId.
 shw_user 里保存这个数据  role,userId,groupId
 
-调用代码:
-
-function get_rights(){
-$flag = false
+实现：
+function get_rights($action, $userId, $groupId, $ownerId, $owerGroupId){
+    $flag = false
 if( $wgGroupPermissions[role ]['delete-any'] == true ){
-$flag = true;
+    $flag = true;
 }else if($wgGroupPermissions[role ]['delete-group'] && owerGroupId == groupId){
-$flag = true;
+    $flag = true;
 }else if($wgGroupPermissions[role ]['delete-self'] && ownerId == userId){
-$flag = true;
+    $flag = true;
 }
-return $flag;
+    return $flag;
 }
+
 
 if(get_rights($action, $userId, $groupId, $ownerId, $owerGroupId)){
-//TODO do operation
+    //TODO do operation
 }else{
-//TODO can not do operation
+    //TODO can not do operation
 }
  
