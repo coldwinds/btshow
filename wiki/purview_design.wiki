@@ -51,7 +51,7 @@ You can change this settings in local_settings.php in the root directory.
  # confirmed: Validated user. when an account is added to uploader, teamleader, or sysop, he is auto-confirmed.
  * *ownership check when applying rights*
  # *Note:* What can a object be? they are: page, comment, team, user, and cache.
- # `*`: No check, rights apply to anyone's owning objects.
+ # any: No check, rights apply to anyone's owning objects.
  # own: rights only apply to your own owning objects.
  # team: rights apply to your team's owning objects.
  
