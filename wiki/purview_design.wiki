@@ -70,7 +70,31 @@ You can change this settings in local_settings.php in the root directory.
 
 == API ==
 
-boolean get_rights( $user_id, $action , $context )
+boolean get_rights($action, $userId, $groupId, $ownerId = null, $owerGroupId = null)
 
+== Code Sample==
 
+你可以拿到当前操作的  
+page 和 comment 上 保存这2个数据 ownerId ,owerGroupId
+shw_user 里保存这个数据  role,userId,groupId
+
+调用代码:
+
+function get_rights(){
+$flag = false
+if( $wgGroupPermissions[role ]['delete-any'] == true ){
+$flag = true;
+}else if($wgGroupPermissions[role ]['delete-group'] && owerGroupId == groupId){
+$flag = true;
+}else if($wgGroupPermissions[role ]['delete-self'] && ownerId == userId){
+$flag = true;
+}
+return $flag;
+}
+
+if(get_rights($action, $userId, $groupId, $ownerId, $owerGroupId)){
+//TODO do operation
+}else{
+//TODO can not do operation
+}
  
