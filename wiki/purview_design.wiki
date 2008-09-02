@@ -9,28 +9,28 @@ You can change this settings in local_settings.php in the root directory.
 
 == rights-roles granting ==
 || rights     \     roles || `*`     || user  || confirmed || uploader || teamleader || sysop || developer || description ||
-|| page-view              || `*`     ||       ||           ||          ||            ||       ||           || view any page ||
-|| page-create            ||         ||       ||           || `*`      ||            ||       ||           || create a page ||
-|| page-modify            ||         ||       ||           || own,team ||            || `*`   ||           || edit one's own page ||
-|| page-delete            ||         ||       ||           || own,team ||            || `*`   ||           || delete/undelete one's own page ||
-|| page-delete-purge      ||         ||       ||           ||          ||            ||       || `*`       || delete any page from database ||
-|| page-star              ||         ||       ||           ||          ||            || `*`   ||           || star any page (so we can put it on top) ||
-|| page-rate              || `*`     ||       ||           ||          ||            ||       ||           || give scores to rate any page ||
+|| page-view              || any     ||       ||           ||          ||            ||       ||           || view any page ||
+|| page-create            ||         ||       ||           || any      ||            ||       ||           || create a page ||
+|| page-modify            ||         ||       ||           || own,team ||            || any   ||           || edit one's own page ||
+|| page-delete            ||         ||       ||           || own,team ||            || any   ||           || delete/undelete one's own page ||
+|| page-delete-purge      ||         ||       ||           ||          ||            ||       || any       || delete any page from database ||
+|| page-star              ||         ||       ||           ||          ||            || any   ||           || star any page (so we can put it on top) ||
+|| page-rate              || any     ||       ||           ||          ||            ||       ||           || give scores to rate any page ||
 || page-nocomment         ||         ||       ||           || own      ||            ||       ||           || deny/allow comment posting of one's own page ||
-|| comment-view           || `*`     ||       ||           ||          ||            ||       ||           || view comments of any page ||
-|| comment-viewip         ||         ||       ||           ||          ||            || `*`   ||           || view ip of the poster in a comment header ||
-|| comment-post           || `*`     ||       ||           ||          ||            ||       ||           || post a comment of any page ||
+|| comment-view           || any     ||       ||           ||          ||            ||       ||           || view comments of any page ||
+|| comment-viewip         ||         ||       ||           ||          ||            || any   ||           || view ip of the poster in a comment header ||
+|| comment-post           || any     ||       ||           ||          ||            ||       ||           || post a comment of any page ||
 || comment-delete         ||         ||       ||           ||          ||            ||       ||           || delete/undelete one's own comment of any page ||
-|| comment-delete-purge   ||         ||       ||           ||          ||            ||       || `*`       || delete any comment of any page from database ||
-|| controlled-vocabulary  ||         ||       ||           ||          ||            || `*`   ||           || maintain the controlled vocabulary ||
-|| team-membership        ||         ||       ||           ||          || own        || `*`   ||           || add/remove a user to/from his own team ||
-|| team-name              ||         ||       ||           ||          || own        || `*`   ||           || set his own team's name and code ||
+|| comment-delete-purge   ||         ||       ||           ||          ||            ||       || any       || delete any comment of any page from database ||
+|| controlled-vocabulary  ||         ||       ||           ||          ||            || any   ||           || maintain the controlled vocabulary ||
+|| team-membership        ||         ||       ||           ||          || own        || any   ||           || add/remove a user to/from his own team ||
+|| team-name              ||         ||       ||           ||          || own        || any   ||           || set his own team's name and code ||
 || user-login             ||         || own   ||           ||          ||            ||       ||           || can login ||
 || user-skipcaptcha       ||         ||       || own       ||          ||            ||       ||           || skip captcha validation when posting ||
-|| user-rights            ||         ||       ||           ||          ||            || `*`   ||           || set user's role ||
-|| user-delete            ||         || own   ||           ||          ||            || `*`   ||           || account suicide ||
-|| user-delete-purge      ||         ||       ||           ||          ||            ||       || `*`       || delete any account from database ||
-|| cache-clear            ||         ||       ||           ||          ||            ||       || `*`       || force to clear server's cache of file ||
+|| user-rights            ||         ||       ||           ||          ||            || any   ||           || set user's role ||
+|| user-delete            ||         || own   ||           ||          ||            || any   ||           || account suicide ||
+|| user-delete-purge      ||         ||       ||           ||          ||            ||       || any       || delete any account from database ||
+|| cache-clear            ||         ||       ||           ||          ||            ||       || any       || force to clear server's cache of file ||
 
  * *rights*
  # page-view: If you want your site to be private, change this.
