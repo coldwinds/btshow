@@ -70,5 +70,16 @@ class user {
 	public function judge($action, $object_owner_id = false, $object_owningteam_id = false); // return: (bool)
 	public function get_id();
 	public function get_team_id();
-}
+	function __construct(){
+		$this->groups=$this->get_usergroup();
+		foreach($sg_default_groups as $default_group)
+		// order is important! order of group leads to overwriting of rights!
+			if($this->group[$default_group]===true) 
+			// if this account is in the `$default_group` group
+				foreach($this->rights as $right=>$type) 
+				//all local rights inherit their value from `$default_group` group
+				//one by one, orderly!
+					if($this->rights[$right]=$sg_default_rights[$default_group][$right]);
+		//all proper rights are inherited
+}}
 }}}
