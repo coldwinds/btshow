@@ -68,7 +68,7 @@ You can change this settings in local_settings.php in the root directory.
 {{{
 class user {
 	// return: (bool)
-	public function judge($action, $object_owner_id, $object_team_id);
+	public function judge($action, $object_owner_id = false, $object_team_id = false);
 	public function get_id();
 	public function get_team_id();
 }
