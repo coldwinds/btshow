@@ -67,8 +67,7 @@ You can change this settings in local_settings.php in the root directory.
 == API ==
 {{{
 class user {
-	// return: (bool)
-	public function judge($action, $object_owner_id = false, $object_team_id = false);
+	public function judge($action, $object_owner_id = false, $object_owningteam_id = false); // return: (bool)
 	public function get_id();
 	public function get_team_id();
 }
