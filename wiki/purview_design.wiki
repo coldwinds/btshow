@@ -13,32 +13,23 @@ You can change this settings in local_settings.php in the root directory.
 || page-view              || grant   ||       ||           ||          ||            ||       ||           || view any page ||
 || page-create            ||         ||       ||           || grant    ||            ||       ||           || create a page ||
 || page-modify            ||         ||       ||           || grant    ||            ||       ||           || edit one's own page ||
-|| page-modify-team       ||         ||       ||           || grant    ||            ||       ||           || edit one's own team's page ||
-|| page-modify-any        ||         ||       ||           ||          ||            || grant ||           || edit any page ||
 || page-delete            ||         ||       ||           || grant    ||            ||       ||           || delete/undelete one's own page ||
-|| page-delete-team       ||         ||       ||           || grant    ||            ||       ||           || delete one's own team's page ||
-|| page-delete-any        ||         ||       ||           ||          ||            || grant ||           || delete/undelete any page ||
 || page-delete-purge      ||         ||       ||           ||          ||            ||       || grant     || delete any page from database ||
 || page-star              ||         ||       ||           ||          ||            || grant ||           || star any page (so we can put it on top) ||
 || page-rate              || grant   ||       ||           ||          ||            ||       ||           || give scores to rate any page ||
 || page-nocomment         ||         ||       ||           || grant    ||            ||       ||           || deny/allow comment posting of one's own page ||
-|| page-nocomment-any     ||         ||       ||           ||          ||            || grant ||           || deny/allow comment posting of any page ||
 || comment-view           || grant   ||       ||           ||          ||            ||       ||           || view comments of any page ||
 || comment-viewip         ||         ||       ||           ||          ||            || grant ||           || view ip of the poster in a comment header ||
 || comment-post           || grant   ||       ||           ||          ||            ||       ||           || post a comment of any page ||
 || comment-delete         ||         ||       ||           ||          ||            ||       ||           || delete/undelete one's own comment of any page ||
-|| comment-delete-any     ||         ||       ||           ||          ||            || grant ||           || delete/undelete any comment of any page ||
 || comment-delete-purge   ||         ||       ||           ||          ||            ||       || grant     || delete any comment of any page from database ||
 || controlled-vocabulary  ||         ||       ||           ||          ||            || grant ||           || maintain the controlled vocabulary ||
 || team-membership        ||         ||       ||           ||          || grant      ||       ||           || add/remove a user to/from his own team ||
-|| team-membership-any    ||         ||       ||           ||          ||            ||       ||           || add/remove a team's member to/from this team ||
 || team-name              ||         ||       ||           ||          || grant      ||       ||           || set his own team's name and code ||
-|| team-name-any          ||         ||       ||           ||          ||            ||       ||           || set a team's name ||
 || user-login             ||         || grant ||           ||          ||            ||       ||           || can login ||
 || user-skipcaptcha       ||         ||       || grant     ||          ||            ||       ||           || skip captcha validation when posting ||
 || user-rights            ||         ||       ||           ||          ||            || grant ||           || set user's role ||
 || user-delete            ||         || grant ||           ||          ||            ||       ||           || account suicide ||
-|| user-delete-any        ||         ||       ||           ||          ||            || grant ||           || delete/undelete any account ||
 || user-delete-purge      ||         ||       ||           ||          ||            ||       || grant     || delete any account from database ||
 || cache-clear            ||         ||       ||           ||          ||            ||       || grant     || force to clear server's cache of file ||
 
