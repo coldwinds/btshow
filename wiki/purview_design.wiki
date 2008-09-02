@@ -20,7 +20,7 @@ You can change this settings in local_settings.php in the root directory.
 || comment-view           || any     ||       ||           ||          ||            ||       ||           || view comments of any page ||
 || comment-viewip         ||         ||       ||           ||          ||            || any   ||           || view ip of the poster in a comment header ||
 || comment-post           || any     ||       ||           ||          ||            ||       ||           || post a comment of any page ||
-|| comment-delete         ||         ||       ||           ||          ||            ||       ||           || delete/undelete one's own comment of any page ||
+|| comment-delete         ||         ||       ||           ||          ||            || any   ||           || delete/undelete one's own comment of any page ||
 || comment-delete-purge   ||         ||       ||           ||          ||            ||       || any       || delete any comment of any page from database ||
 || controlled-vocabulary  ||         ||       ||           ||          ||            || any   ||           || maintain the controlled vocabulary ||
 || team-membership        ||         ||       ||           ||          || own        || any   ||           || add/remove a user to/from his own team ||
