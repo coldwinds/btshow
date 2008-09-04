@@ -58,7 +58,7 @@ class db{
 		else
 			return false;
 	}
-	public escape($s){
+	public function escape($s){
 		return is_string($s) ? $db->escape_string($s) : '';
 	}
 }

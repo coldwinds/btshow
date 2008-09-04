@@ -41,7 +41,7 @@ if($data['action']==='post'){
 	if($id===false)
 		errno(JSON_ERRNO_INVALID_REQUEST);
 	else
-		export(array('cid'=>$id))
+		export(array('cid'=>$id));
 		
 }elseif($data['action']==='view'){
 	if(is_set($rights['comment_view'])&&!$rights['comment_view']) //allow by default
@@ -50,7 +50,7 @@ if($data['action']==='post'){
 	$s=comment_view($data['eid'],$data['page']);
 	
 	if($s===false)
-		errno(JSON_ERRNO_INVALID_REQUEST)
+		errno(JSON_ERRNO_INVALID_REQUEST);
 	else
 		export(array('contents'=>$s));
 		
