@@ -1,6 +1,14 @@
 <?php
 class user{
 	
+	public static function init(){
+		if(!isset($instance)){
+			$c=__CLASS__;
+			self::$instance=new $c;
+		}
+		return self::$instance;
+	}
+	
 	/** 认证用户,判断当前请求是否已经登陆 */
 	function validateUser(){
 		$username = $_COOKIE['SHW_TOKEN'];
