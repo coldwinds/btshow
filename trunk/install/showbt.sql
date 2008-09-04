@@ -56,3 +56,20 @@ CREATE TABLE `shw_alias_index` (
   UNIQUE KEY `cv_id` (`cv_id`,`alias`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `shw_user`;
+CREATE TABLE `shw_user` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(63) NOT NULL COMMENT 'email',
+  `password` varchar(63) NOT NULL,
+  `group_id` int(11) unsigned NOT NULL,
+  `role` int(11) unsigned NOT NULL default '0' COMMENT '0-user  1-confirmed  2-uploader \r\n4-teamleader  8-sysop  16-developer',
+  `register_ip` int(11) unsigned NOT NULL,
+  `last_login_ip` int(11) unsigned NOT NULL,
+  `last_modify_time` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `username_password` (`username`,`password`),
+  KEY `group_id` (`group_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
