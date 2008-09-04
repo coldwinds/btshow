@@ -1,5 +1,5 @@
 <?php
-function localize($message_name){
+function l10n($message_name){
 	$num_args = func_num_args;
 	$search = array();
 	for($i=0;$i<$num_args;$i++)
