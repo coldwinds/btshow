@@ -39,6 +39,10 @@ class User{
 		}else{
 			$required_scope = SCOPE_ANY;
 		}
+		$scope = $sg_defined_rights[$action][ROLE_ANYONE];
+		if($scope >= $required_scope){
+			return true;
+		}
 		$scope = $sg_defined_rights[$action][$this->role];
 		if($scope >= $required_scope){
 			return true;
