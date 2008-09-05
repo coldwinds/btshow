@@ -2,9 +2,10 @@
 class User{
 	private static $instance;
 
-	private $userId = false;
-	private $username = false;
-	private $groupId = false;
+	public $userId = false;
+	public $username = false;
+	public $groupId = false;
+	public $role = ROLE_ANYONE;
 
 	public static function getInstance(){
 		if(!isset($instance)){
@@ -20,10 +21,10 @@ class User{
 		$sql = "select * from {$db->prefix}user where username = ? and password = ?";
 		$ret = $db->queryf($sql,$username,$password);
 		if($row = $ret->fetch_assoc()){
-			self::$userId = $row['id'];
-			self::$username = $row['username'];
-			self::$userGroupId =  $row['group_id'];
-			
+			$this->$userId = $row['id'];
+			$this->$userGroupId = $row['group_id'];
+			$this->$role = $row['role'];
+			$this->$username = $row['username'];
 			//TODO save token to user
 			return true;
 		}
@@ -31,7 +32,18 @@ class User{
 	}
 
 	function judge($action, $object_owner_id = false, $object_owningteam_id = false){
-
+		if ($this->userId == $object_owner_id){
+			$required_scope = SCOPE_OWN;
+		}elseif($this->groupId == $object_owningteam_id){
+			$required_scope = SCOPE_TEAM;
+		}else{
+			$required_scope = SCOPE_ANY;
+		}
+		$scope = $sg_defined_rights[$action][$this->role];
+		if($scope >= $required_scope){
+			return true;
+		}
+		return false;
 	}
 
 	/** invoke once when the first time visit the user propertise */
@@ -46,22 +58,13 @@ class User{
 				$sql = "select * from {$db->prefix}user where username = ? and token = ?";
 				$ret = $db->queryf($sql,$username,$token);
 				if($row = $ret->fetch_assoc()){
-					self::$userId = $row['id'];
-					self::$userGroupId =  $row['group_id'];
-					self::$username = $row['username'];
+					$this->$userId = $row['id'];
+					$this->$userGroupId =  $row['group_id'];
+					$this->$role = $row['role'];
+					$this->$username = $row['username'];
 				}
 			}
 		}
-	}
-
-	function getUserId(){
-		self::initUser();
-		return self::$userId;
-	}
-
-	function getGroupId(){
-		self::initUser();
-		return self::$groupId;
 	}
 }
 ?>
