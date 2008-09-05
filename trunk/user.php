@@ -18,8 +18,8 @@ class User{
 	/** invoke once when the first time visit the user propertise */
 	function  __construct(){
 		if(!isset($username)){
-			$username = $_COOKIE['BHW_USERNAME'];
-			$token = $_COOKIE['BHW_TOKEN'];
+			$username = $_COOKIE['SHW_USERNAME'];
+			$token = $_COOKIE['SHW_TOKEN'];
 			if(isset($token) || isset($username)){// if cookie not exist
 
 			}else{
@@ -37,7 +37,7 @@ class User{
 	}
 
 	/** user login */
-	function dologin($username,$password){
+	function dologin($username,$password,$cookie_expire){
 		$db = db::init();
 		$sql = "select * from {$db->prefix}user where username = ? and password = ?";
 		$ret = $db->queryf($sql,$username,$password);
@@ -46,7 +46,13 @@ class User{
 			$this->$userGroupId = $row['group_id'];
 			$this->$role = $row['role'];
 			$this->$username = $row['username'];
-			//TODO save token to user
+			
+			//save token to user table
+			$sql = "update {$db->prefix}user set token = ? where id = ?";
+			$token = api_generate_rand_key();
+			$ret = $db->queryf($sql,$token,$this->$userId);//TODO how to confirm db operation successed?
+			setcookie("SHW_USERNAME",$this->$username,time()+$cookie_expire);
+			setcookie("SHW_TOKEN",$token,time()+$cookie_expire);
 			return true;
 		}
 		return false;
@@ -104,5 +110,13 @@ class User{
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Generate a random key using the methodology recommend in php.net/uniqid
+	 * @return a unique random hex key
+	 */
+	function api_generate_rand_key() {
+	  return md5(uniqid(mt_rand(), true));
 	}
 }
