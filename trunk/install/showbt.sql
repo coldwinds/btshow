@@ -60,10 +60,11 @@ CREATE TABLE `shw_alias_index` (
 DROP TABLE IF EXISTS `shw_user`;
 CREATE TABLE `shw_user` (
   `id` int(11) NOT NULL auto_increment,
-  `username` varchar(63) NOT NULL COMMENT 'email',
-  `password` varchar(63) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `email` varchar(100) NOT NULL COMMENT 'email',
   `group_id` int(11) unsigned NOT NULL,
-  `role` int(11) unsigned NOT NULL default '0' COMMENT '0-user  1-confirmed  2-uploader \r\n4-teamleader  8-sysop  16-developer',
+  `role` int(11) unsigned NOT NULL default '1' COMMENT '1-user  2-confirmed  4-uploader \r\n8-teamleader  16-sysop  32-developer',
   `register_ip` int(11) unsigned NOT NULL,
   `last_login_ip` int(11) unsigned NOT NULL,
   `last_modify_time` timestamp NOT NULL default CURRENT_TIMESTAMP,
