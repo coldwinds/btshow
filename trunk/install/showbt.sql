@@ -1,62 +1,114 @@
+
+/*
 DROP TABLE IF EXISTS `shw_entry`;
 CREATE TABLE `shw_entry` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `type_cv_id` int(11) unsigned default NULL,
-  `genre_cv_id` int(11) unsigned default NULL,
-  `title_cv_id` int(11) unsigned default NULL,
-  `republisher_cv_id` int(11) unsigned default NULL,
-  `translator_cv_id` int(11) unsigned default NULL,
-  `artist_cv_id` int(11) unsigned default NULL,
-  `contributor_cv_id` int(11) unsigned default NULL,
-  `language_cv_id` int(11) unsigned default NULL,
-  `subtitle_language_cv_id` int(11) unsigned default NULL,
-  `origin_cv_id` int(11) unsigned default NULL,
-  `format_cv_id` int(11) unsigned default NULL,
-  `subtitle_format_cv_id` int(11) unsigned default NULL,
-  `video_codec_cv_id` int(11) unsigned default NULL,
-  `audio_codec_cv_id` int(11) unsigned default NULL,
-  `software_platform_cv_id` int(11) unsigned default NULL,
-  `part_number` int(11) unsigned default NULL,
-  `video_height` int(11) unsigned default NULL,
-  `video_width` int(11) unsigned default NULL,
-  `video_bitrate` int(11) unsigned default NULL,
-  `video_framerate` int(11) unsigned default NULL,
-  `audio_bitrate` int(11) unsigned default NULL,
-  `audio_channel` int(11) unsigned default NULL,
-  `date_air` int(11) unsigned default NULL,
-  `date_republish` int(11) unsigned default NULL,
-  `size` bigint(20) unsigned default NULL,
-  `republish_title` varchar(255) default NULL,
-  `republisher_comment` text,
-  `torrent_infohash` blob NOT NULL,
-  `torrent_filelist` text,
-  `torrent_comment` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `torrent_infohash` (`torrent_infohash`(20))
+	`id` int(10) NOT NULL auto_increment,
+	`type` int(10) default NULL,
+	`genre` int(10) default NULL,
+	`topic` int(10) default NULL,
+	`title` int(10) default NULL,
+	`part_number` int(10) default NULL,
+	`republish_title` varchar(255) NOT NULL default '',
+	`republish_title_ref` varchar(255) NOT NULL default '',
+	`republisher` int(10) default NULL,
+	`translator` int(10) default NULL,
+	`artist` int(10) default NULL,
+	`contributor` int(10) default NULL,
+	`date_air` int(10) default NULL,
+	`date_republish` int(10) default NULL,
+	`language` int(10) default NULL,
+	`has_subtitle` TINYint(10) default NULL,
+	`subtitle_language` int(10) default NULL,
+	`origin` int(10) default NULL,
+	`format` int(10) default NULL,
+	`subtitle_format` int(10) default NULL,
+	`size` bigint(20) default NULL,
+	`video_codec` int(10) default NULL,
+	`audio_codec` int(10) default NULL,
+	`software_platform` int(10) default NULL,
+	`video_height` int(10) default NULL,
+	`video_width` int(10) default NULL,
+	`video_bitrate` int(10) default NULL,
+	`video_framerate` int(10) default NULL,
+	`audio_bitrate` int(10) default NULL,
+	`audio_channel` int(10) default NULL,
+	`republish_comment` text NOT NULL default '',
+	`torrent_link` varchar(255) default NULL,
+	`torrent_annouce` varchar(255) default NULL,
+	`torrent_infohash` tinyblob NOT NULL,
+	`torrent_filelist` blob NOT NULL,
+	`torrent_comment` text,
+	`owner` int(10) NOT NULL,
+	`owningteam` int(10) NOT NULL,
+	`is_starred` tinyint(1) NOT NULL default 0,
+	`deleted` tinyint(1) NOT NULL default 0,
+	`torrent_seeders` int(10) default NULL,
+	`torrent_leechers` int(10) default NULL,
+	`torrent_complete` int(10) default NULL,
+	`display_order` tinyint(1) default NULL,
+	`rating_score` int(10) NOT NULL default 0,
+	`rating_times` int(10) NOT NULL default 0,
+	`view_count` int(10) NOT NULL default 0,
+	`download_count` int(10) NOT NULL default 0,
+	`comment_count` int(10) NOT NULL default 0,
+	PRIMARY KEY(`id`),
+	KEY(`type`),
+	KEY(`genre`),
+	KEY(`topic`),
+	KEY(`title`),
+	KEY(`part_number`),
+	FULLTEXT(`republish_title`),
+	KEY(`republisher`),
+	KEY(`translator`),
+	KEY(`artist`),
+	KEY(`contributor`),
+	KEY(`date_air`),
+	KEY(`date_republish`),
+	KEY(`language`),
+	KEY(`has_subtitle`),
+	KEY(`subtitle_language`),
+	KEY(`origin`),
+	KEY(`format`),
+	KEY(`subtitle_format`),
+	KEY(`size`),
+	KEY(`video_codec`),
+	KEY(`audio_codec`),
+	KEY(`software_platform`),
+	KEY(`video_height`),
+	KEY(`video_width`),
+	KEY(`video_bitrate`),
+	KEY(`video_framerate`),
+	KEY(`audio_bitrate`),
+	KEY(`audio_channel`),
+	UNIQUE KEY(`torrent_infohash`(20)),
+	KEY(`owner`),
+	KEY(`owningteam`),
+	KEY(`is_starred`),
+	KEY(`deleted`),
+	KEY(`torrent_seeders`),
+	KEY(`torrent_leechers`),
+	KEY(`torrent_complete`),
+	KEY(`display_order`),
+	KEY(`rating_score`),
+	KEY(`rating_times`),
+	KEY(`view_count`),
+	KEY(`download_count`),
+	KEY(`comment_count`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='all metadata about the torrent entry uploaded by user.';
-
+*/
 /* XXX requiring optimization below */
+
 DROP TABLE IF EXISTS `shw_controlled_vocabulary`;
 CREATE TABLE `shw_controlled_vocabulary` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `tag_id` int(11) unsigned NOT NULL,
-  `value` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+	`id` int(10) NOT NULL auto_increment,
+	`tag_id` int(10) NOT NULL,
+	`tag_value` varchar(255) NOT NULL,
+	`aliases` varchar(255) NOT NULL,
+	PRIMARY KEY  (`id`),
+	KEY (`tag_value`)
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
-/* 
-SELECT * FROM shw_controlled_vocabulary WHERE id='$id';
-*/
-DROP TABLE IF EXISTS `shw_alias_index`;
-CREATE TABLE `shw_alias_index` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `cv_id` int(11) unsigned NOT NULL,
-  `alias` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `cv_id` (`cv_id`,`alias`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
+/*
 DROP TABLE IF EXISTS `shw_user`;
 CREATE TABLE `shw_user` (
   `id` int(11) NOT NULL auto_increment,
@@ -64,7 +116,11 @@ CREATE TABLE `shw_user` (
   `password` varchar(32) NOT NULL,
   `email` varchar(100) NOT NULL COMMENT 'email',
   `group_id` int(11) unsigned NOT NULL,
+<<<<<<< .mine
+  `role` int(11) unsigned NOT NULL default '0` COMMENT '0-user  1-confirmed  2-uploader \r\n4-teamleader  8-sysop  16-developer',
+=======
   `role` int(11) unsigned NOT NULL default '1' COMMENT '1-user  2-confirmed  4-uploader \r\n8-teamleader  16-sysop  32-developer',
+>>>>>>> .r95
   `register_ip` int(11) unsigned NOT NULL,
   `last_login_ip` int(11) unsigned NOT NULL,
   `last_modify_time` timestamp NOT NULL default CURRENT_TIMESTAMP,

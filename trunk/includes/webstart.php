@@ -4,6 +4,11 @@ function __autoload($class){
 	require_once("./includes/$class.php");
 }
 
+function redirect($target){
+	header("Location: $target");
+	die();
+}
+
 if(ini_get('register_globals')){
 	if(isset($_REQUEST['GLOBALS']))
 		die();//$GLOBALS overwrite vulnerability
@@ -19,7 +24,8 @@ require_once('./includes/local_settings.php');
 $sg_exec_timer = microtime(true);
 
 /* parse url */
-$url = $_SERVER['REQUEST_URI'];
+//$url = $_SERVER['REQUEST_URI'];
+$url='/edit/new';
 if(strlen($url)==0)
 	$url = '/';
 
@@ -33,7 +39,7 @@ $sg_url_argv = array($e[1]);
 for($i=2;$i<count($e);$i++)
 	if(strlen($e[$i])!==0)
 		$sg_url_args[]=$e[$i];
-}
+
 $sg_url_argc=count($sg_url_argv);
 unset($e);
 unset($url);

@@ -14,3 +14,7 @@ $sg_script_path = '/s';
 $sg_htmlroot_path = '/share';
 $sg_style_path = '/s/skins';
 
+$sg_site_name='Phase Kara';
+$sg_site_keywords='keywords';
+$sg_site_description='A simple BT publishing index system';
+

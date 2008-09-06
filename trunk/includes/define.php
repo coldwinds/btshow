@@ -67,15 +67,6 @@ $sg_defined_actions=array(
 	'stats', // html viewable
 	'help', // html viewable
 );
-$sg_defined_rssable_tags=array(
-	'type',
-	'genre',
-	'topic',
-	'title',
-	'republisher',
-	'translator',
-	'format',
-);
 
 $sg_defined_rights = array();
 
@@ -114,4 +105,65 @@ $sg_defined_rights[COMMENT_DELETE_PURGE][ROLE_SYSOP] = SCOPE_ANY;
 $sg_defined_rights[USER_DELETE_PURGE][ROLE_SYSOP] = SCOPE_ANY;
 $sg_defined_rights[CACHE_CLEAR][ROLE_SYSOP] = SCOPE_ANY;
 
-
+$sg_metatags=array('tag_id','tag_name','input','control','numeric','search','rssable','rss','recent','detail');
+$sg_tags_definition=array(
+		//     name,                input,control,numeric, search,rssable,    rss, recent, detail
+		array('',			0,	0,	0,	0,	0,	0,	0,	0), //avoid id `0'
+/* db key */
+		array('id',			0,	0,	1,	0,	0,	0,	0,	0),
+/* generally */
+		array('type',			1,	1,	0,	1,	1,	1,	1,	1),
+		array('genre',			1,	1,	0,	1,	1,	1,	1,	1),
+		array('topic',			1,	1,	0,	1,	1,	1,	0,	2),
+		array('title',			1,	1,	0,	1,	1,	1,	1,	2),
+		array('part_number',		1,	1,	1,	1,	0,	1,	1,	2),
+		array('republish_title',	1,	0,	0,	1,	0,	1,	1,	3),
+		array('republish_title_ref',	1,	0,	0,	0,	0,	1,	1,	0),
+/* about people */
+		array('republisher',		0,	1,	0,	1,	1,	1,	1,	4),
+		array('translator',		1,	1,	0,	1,	1,	1,	1,	4),
+		array('artist',			1,	1,	0,	1,	0,	0,	0,	4),
+		array('contributor',		1,	0,	0,	1,	0,	0,	0,	4),
+/* about date */
+		array('date_republish',		0,	0,	1,	1,	0,	1,	1,	5),
+		array('date_air',		1,	0,	1,	1,	0,	0,	0,	5),
+/* about (file) contents */
+		array('language',		1,	1,	0,	1,	0,	1,	0,	6),
+		array('has_subtitle',		1,	1,	0,	1,	1,	1,	0,	6),
+		array('subtitle_language',	1,	1,	0,	1,	0,	1,	0,	6),
+		array('subtitle_format',	1,	1,	0,	1,	0,	1,	0,	6),
+		array('origin',			1,	1,	0,	1,	0,	1,	0,	7),
+		array('format',			1,	1,	0,	1,	1,	1,	0,	7),
+		array('video_codec',		1,	1,	0,	0,	0,	1,	0,	7),
+		array('audio_codec',		1,	1,	0,	0,	0,	1,	0,	7),
+		array('size',			0,	0,	1,	1,	0,	1,	1,	8),
+		array('software_platform',	1,	1,	0,	1,	0,	1,	0,	8),
+		array('video_height',		1,	0,	1,	0,	0,	1,	0,	9),
+		array('video_width',		1,	0,	1,	0,	0,	1,	0,	9),
+		array('video_bitrate',		1,	0,	1,	0,	0,	1,	0,	9),
+		array('video_framerate',	1,	0,	1,	0,	0,	1,	0,	9),
+		array('audio_bitrate',		1,	0,	1,	0,	0,	1,	0,	10),
+		array('audio_channel',		1,	0,	1,	0,	0,	1,	0,	10),
+/* torrent info */
+		array('republish_comment',	1,	0,	0,	0,	0,	1,	0,	11),
+		array('torrent_link',		0,	0,	0,	0,	0,	1,	0,	12),
+		array('torrent_seeders',	0,	0,	1,	0,	0,	0,	1,	12),
+		array('torrent_leechers',	0,	0,	1,	0,	0,	0,	1,	12),
+		array('torrent_complete',	0,	0,	1,	0,	0,	0,	0,	12),
+		array('torrent_annouce',	0,	0,	1,	1,	0,	0,	0,	13),
+		array('torrent_infohash',	0,	0,	1,	1,	0,	0,	0,	14),
+		array('torrent_filelist',	0,	0,	0,	0,	0,	0,	0,	15),
+		array('torrent_comment',	0,	0,	0,	0,	0,	0,	0,	16),
+/* system management */
+		array('owner',			0,	1,	0,	0,	0,	0,	0,	0),
+		array('owningteam',		0,	1,	0,	0,	0,	0,	0,	0),
+		array('is_starred',		0,	1,	0,	1,	1,	0,	1,	0),
+		array('deleted',		0,	0,	0,	0,	0,	0,	0,	0),
+/* frequently updated */
+		array('display_order',		0,	0,	1,	0,	0,	0,	0,	0),
+		array('view_count',		0,	0,	1,	0,	0,	0,	0,	17),
+		array('download_count',		0,	0,	1,	0,	0,	0,	0,	17),
+		array('comment_count',		0,	0,	1,	0,	0,	0,	0,	17),
+		array('rating_score',		0,	0,	1,	0,	0,	0,	0,	0),
+		array('rating_times',		0,	0,	1,	0,	0,	0,	0,	0),
+);

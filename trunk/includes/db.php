@@ -32,7 +32,7 @@ class db{
 			user_error("db connection: success");
 		$this->errno=$this->db->connect_errno;
 	}
-	private function __destruct(){
+	function __destruct(){
 		if(!$this->db->close())
 			user_error("db disconnecting: ({$this->db->connect_errno}) {$this->db->connect_error}",E_USER_ERROR);
 		else
@@ -73,60 +73,24 @@ class db{
 		else
 			return false;
 	}
-	private function wrap_table($table){
-		return $this->prefix.$this->escape($table);
-	}
-	private function wrap_names($names){
-		foreach($names as &$name){
-			$name="'".$this->escape($name)."'";
+	public function queryf($sql){
+		$argv=func_get_args();
+		$argc=func_num_args();
+		$len=strlen($sql);
+		$num=1;
+		for($i=0;$i<strlen($sql)&&$num<$argc;){
+			if($sql[$i]=='?'){
+				$sql=substr($sql,0,$i)."'".$this->db->escape($argv[$num])."'".substr($sql,$i+1);
+				$i+=strlen($argv[$num]);
+				$num++;
+			}else{
+				$i++;
+			}
 		}
-		return implode(',',$names);
-	}
-	private function wrap_where($where){
-		//no escape for $where!
-		//i don't know what you will give me
-		if(empty($where))
-			return '';
-		return "WHERE ".$where;
-	}
-	private function wrap_sets($cols,$vals){
-		$sets=array();
-		foreach($cols as $k=>$col){
-			$sets[]=$this->escape($cols[$k])."='".$this->escape($vals[$k])."'";
-		}
-		return "SET ".implode(',',$sets);
-	}
-	public function select($table,$cols,$where='',$options=''){
-		$table=wrap_table($table);
-		$cols=wrap_names($cols);
-		$where=wrap_where($where);
-		return $this->query("SELECT $cols FROM $table $where $options");
-	}
-	public function insert($table,$cols,$vals){
-		$table=wrap_table($table);
-		$cols=wrap_names($cols);
-		$vals=wrap_names($vals);
-		return $this->query("INSERT INTO $table ($cols) VALUES($vals)");
-	}
-	public function update($table,$cols,$vals,$where='',$lock=false){
-		$table=wrap_table($table);
-		$set=wrap_sets($cols,$vals);
-		$where=wrap_where($where);
-
-		if($lock){
-			$this->query("LOCK TABLES $table WRITE");
-		}
-		$result=$this->query("UPDATE $table $set $where");
-		if($lock){
-			$this->query("UNLOCK TABLES;");
-		}
-	}
-	public function delete($table,$where=''){
-		$table=wrap_table($table);
-		$where=wrap_where($where);
-		$this->query("DELETE FROM $table $where");
+		return $this->db->query($sql);
 	}
 	public function escape($s){
-		return strlen($s) ? $db->escape_string($s) : '';
+		return strlen($s) ? $this->db->escape_string($s) : '';
 	}
 }
+
