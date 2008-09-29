@@ -40,7 +40,10 @@ $var = $this->Auth->user();
 
 $this->Session->setFlash('Good-Bye'); 
 
-//读写session,可以使用"."来访问层次结构
+//读写session,可以使用"."来访问层次结构 例如：User.username 表示为
+ array('User' =>
+        array('username' => 'clarkKent@dailyplanet.com')
+      );
 
 $this->Session->read();
 
