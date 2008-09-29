@@ -16,11 +16,15 @@ Add your content here.  Format your content with:
 = 参考资料 =
 
 官方doc:
+
 http://book.cakephp.org/view/2/x1-2-Collection
 
 = 自动脚手架 =
 
 cake\console\cake.bat  这个批处理文件可以用于根据数据库自动生成MVC的各种文件
+
 使用注意： 
+
 把这个目录加到path中，path=%path%;cake\console\
+
 然后切换到 \app 下执行，这样就可以读到数据库配置文件。
