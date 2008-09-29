@@ -28,3 +28,20 @@ cake\console\cake.bat  这个批处理文件可以用于根据数据库自动生
 把这个目录加到path中，path=%path%;cake\console\
 
 然后切换到 \app 下执行，这样就可以读到数据库配置文件。
+
+
+= 得到当前用户Session =
+
+//可以从session中得到当前user的信息;
+
+$var = $this->Auth->user();
+
+//设置给当前用户的提示
+
+$this->Session->setFlash('Good-Bye'); 
+
+//读写session,可以使用"."来访问层次结构
+
+$this->Session->read();
+
+$this->Session->write();
