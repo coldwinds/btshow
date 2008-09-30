@@ -48,3 +48,10 @@ $this->Session->setFlash('Good-Bye');
 $this->Session->read();
 
 $this->Session->write();
+
+
+= 生成唯一的密钥 =
+app/config/core.php  line 153
+Configure::write('Security.salt', 'aBL7du30mh3dgzfbVfX9fxph49hdSwybO2Cnffde');
+
+修改随机字符串，以获得唯一的加密密钥.
