@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+# Some introduction of cakePHP framework.
 
 = 介绍 =
 这是一个关于cakePHP的简单介绍,请不要修改 /cake 目录下的任何文件，这个目录由cakePHP维护。
