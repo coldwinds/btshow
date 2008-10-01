@@ -48,3 +48,27 @@ app/config/core.php  line 153
 Configure::write('Security.salt', 'aBL7du30mh3dgzfbVfX9fxph49hdSwybO2Cnffde');
 
 修改随机字符串，以获得唯一的加密密钥.
+
+= 展现-业务逻辑分离的编码方式 =
+
+你可能需要一些工具类 从业务逻辑中剥离出来，达到高度复用和缓存性能的作用。
+
+*展现层 
+展现层直接输出html标记,比如 时间格式化 日期格式化 转换 公式计算等。
+
+使用 helper，自定义的helper放在 app/views/helpers/ 下，并且在controller中启用.
+var $helpers = array('Html', 'Form', '你的helper', ...);
+
+*控制层
+对于流程控制相关操作，比如:  权值计算 统计 数据分析算等。
+
+使用components ,和helper类似，不同是components更加单元逻辑的控制和数据操作，不涉及输出html标记.
+
+自定义的component放在 app/controllers/components/
+var $components = array('Auth', 'Acl' , '你的components' , ....);
+
+*模型层
+除了 helper components 以外，还有 behaviors.
+behaviors 是和模型相关的，比如Tree behaviors ,封装了树这种复杂数据模型的CUID操作，
+
+其实这都是对于function的细分，并且在一定基础上做了扩展和状态维护，比较好得利用这些特性会让程序更加可读和可扩展。
