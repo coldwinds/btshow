@@ -37,20 +37,19 @@ class TorrentsController extends AppController {
 	}
 
 	function add() {
+		//动态增加表关联 Creating Associations on the Fly		
+		$this->Torrent->bindModel(
+		array('hasOne'=>array(
+					'TorrentDetail' => array(
+									'className' => 'TorrentDetail',
+									'foreignKey' => 'torrent_id',
+									'dependent' => false,
+									'conditions' => '',
+									'fields' => '',
+									'order' => '')
+		)
+		));
 		if (!empty($this->data)) {
-			//动态增加表关联 Creating Associations on the Fly		
-			$this->Torrent->bindModel(
-			array('hasOne'=>array(
-						'TorrentDetail' => array(
-										'className' => 'TorrentDetail',
-										'foreignKey' => 'torrent_id',
-										'dependent' => false,
-										'conditions' => '',
-										'fields' => '',
-										'order' => '')
-			)
-			)
-			);
 			/** 用户信息 */
 			$auth = $this->Auth->user();
 			if($auth){
@@ -65,8 +64,8 @@ class TorrentsController extends AppController {
 			/* 解析文件 */
 			$fn = $this->data['Torrent']['tfile']['tmp_name'];
 			App::import('Vendor','TorrentFile');
-			$x = new TorrentFile();
-			$torrent_info = $x->parse_file($fn);
+			$obj = new TorrentFile();
+			$torrent_info = $obj->parse_file($fn);
 			$des_file = WWW_ROOT.'files'.DS.$torrent_info[0]['info_hash'].'.torrent';
 			if(file_exists($des_file)){
 				$res = $this->Torrent->findByInfoHash(pack('H*',$torrent_info[0]['info_hash']));
@@ -86,15 +85,34 @@ class TorrentsController extends AppController {
 			$this->data['XbtFile']['mtime'] = time();
 			$this->data['XbtFile']['ctime'] = time();
 			$this->Torrent->XbtFile->save($this->data);
+			//文件列表
 			$count_file_size = 0;
+			$file_list = array();
 			if(isset($torrent_info[0]['info']['files'])){
 				foreach ( $torrent_info[0]['info']['files'] as $value ){
+					$file = array();
+					$file['length']= (int)$value['length'];
+					if(is_array($value['path'])){
+						$file['name'] = $value['path'][0];
+					}else{
+						if(isset($value['path.utf-8'])){
+							$file['name']= $value['path.utf-8'];
+						}else{
+							$file['name']= $value['path'];
+						}
+					}
+					$file_list[] = $file;
 					$count_file_size += (int) $value['length'];
 				}
 			}
 			if(isset($torrent_info[0]['info']['length'])){
-				$count_file_size = $torrent_info[0]['info']['length'];
+				$count_file_size += (int) $torrent_info[0]['info']['length'];
+				$file = array();
+				$file['name'] = $torrent_info[0]['info']['name.utf-8'];
+				$file['length'] = $torrent_info[0]['info']['length'];
+				$file_list[] = $file;
 			}
+			$this->data['TorrentDetail']['torrent_filelist'] = serialize($file_list);
 			$this->data['Torrent']['file_size'] = $count_file_size;
 			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']);
 

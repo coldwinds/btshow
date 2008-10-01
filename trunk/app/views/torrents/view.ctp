@@ -1,93 +1,54 @@
 <div class="torrents view">
 <h2><?php  __('Torrent');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($torrent['User']['id'], array('controller'=> 'users', 'action'=>'view', $torrent['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Team'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($torrent['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $torrent['Team']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cv Type'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($torrent['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $torrent['CvType']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Info Hash'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['info_hash']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['publisher']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title Style'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['title_style']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['title']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Link Url'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['link_url']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ip'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['ip']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('File Size'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['file_size']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Is Top'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['is_top']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Is Reseed'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['is_reseed']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Is Commend'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['is_commend']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Is Local'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['is_local']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['modified']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $torrent['Torrent']['created']; ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
+<table>
+	<tr>
+		<th><?php __('Title')?></th>
+		<td><?php echo $torrent['Torrent']['title']; ?></td>
+	</tr>
+	<tr>
+		<th><?php __('Cv Type')?></th>
+		<td><?php echo $html->link($torrent['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $torrent['CvType']['id'])); ?>&nbsp;</td>
+	</tr>
+	<tr>
+		<th><?php __('Team')?></th>
+		<td><?php echo $html->link($torrent['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $torrent['Team']['id'])); ?>&nbsp;</td>
+	</tr>
+	<tr>
+		<th><?php __('Publisher')?></th>
+		<td><?php echo $torrent['Torrent']['publisher']; ?></td>
+	</tr>
+	<tr>
+		<th><?php __('Modified'); ?></th>
+		<td><?php echo $torrent['Torrent']['modified']; ?>&nbsp;</td>
+	</tr>
+	<tr>
+		<th><?php __('Created'); ?></th>
+		<td><?php echo $torrent['Torrent']['created']; ?>&nbsp;</td>
+	</tr>
+	<tr>
+		<th><?php __('Download'); ?></th>
+		<td><?php 
+		$hash = unpack('H*',$torrent['Torrent']['info_hash']);
+		echo $html->link(__('Download',true),'/files/'.$hash[1].'.torrent') ?>&nbsp;</td>
+	</tr>
+	<tr>
+		<th><?php __('Ip')?></th>
+		<td><?php echo $torrent['Torrent']['ip']; ?></td>
+	</tr>
+	<tr>
+		<th><?php __('Torrent Filelist')?></th>
+		<td><?php $filelist = unserialize($torrent['TorrentDetail']['torrent_filelist']); ?>
+			<table>
+				<?php foreach ($filelist as $file ): ?>
+				<tr><td><?php echo $file['name'] ?></td><td><?php echo $file['length'] ?></td></tr>
+				<?php endforeach; ?>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
 <div class="actions">
 	<ul>
 		<li><?php echo $html->link(__('Edit Torrent', true), array('action'=>'edit', $torrent['Torrent']['id'])); ?> </li>
@@ -104,28 +65,4 @@
 		<li><?php echo $html->link(__('New Torrent Detail', true), array('controller'=> 'torrent_details', 'action'=>'add')); ?> </li>
 	</ul>
 </div>
-	<div class="related">
-		<h3><?php  __('Related Torrent Details');?></h3>
-	<?php if (!empty($torrent['TorrentDetail'])):?>
-		<dl>	<?php $i = 0; $class = ' class="altrow"';?>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id');?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $torrent['TorrentDetail']['id'];?>
-&nbsp;</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Torrent Id');?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $torrent['TorrentDetail']['torrent_id'];?>
-&nbsp;</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cv Type Id');?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $torrent['TorrentDetail']['cv_type_id'];?>
-&nbsp;</dd>
-		</dl>
-	<?php endif; ?>
-		<div class="actions">
-			<ul>
-				<li><?php echo $html->link(__('Edit Torrent Detail', true), array('controller'=> 'torrent_details', 'action'=>'edit', $torrent['TorrentDetail']['id'])); ?></li>
-			</ul>
-		</div>
-	</div>
 	
