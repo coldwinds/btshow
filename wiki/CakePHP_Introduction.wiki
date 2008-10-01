@@ -1,23 +1,16 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= 介绍 =
+这是一个关于cakePHP的简单介绍,请不要修改 /cake 目录下的任何文件，这个目录由cakePHP维护。
 
 
 = 参考资料 =
 
-官方doc:
+* 官方doc: http://book.cakephp.org/view/2/x1-2-Collection
 
-http://book.cakephp.org/view/2/x1-2-Collection
+= 常量定义位置 =
+
+项目级的常量定义在 app/config/bootstrap.php 中.
 
 = 自动脚手架 =
 
