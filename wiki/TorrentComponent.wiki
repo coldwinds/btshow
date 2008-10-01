@@ -24,10 +24,17 @@ class TorrentComponent extends Object {
 array结构：
 
 array['announce']
+
 array['announce-list']
+
 array['encoding']
+
 array['files']
+
 array['private']
+
 array['info_hash']
+
 array['publisher']
+
 array['publisher-url']
