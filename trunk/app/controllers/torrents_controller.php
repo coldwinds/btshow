@@ -4,6 +4,12 @@ class TorrentsController extends AppController {
 	var $name = 'Torrents';
 	var $helpers = array('Html', 'Form');
 
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allowedActions = array('index', 'view');
+	}
+
+
 	function index() {
 		$this->Torrent->recursive = 0;
 		$this->set('torrents', $this->paginate());
@@ -16,7 +22,7 @@ class TorrentsController extends AppController {
 		}
 		//动态增加表关联 Creating Associations on the Fly		
 		$this->Torrent->bindModel(
-			array('hasOne'=>array(
+		array('hasOne'=>array(
 					'TorrentDetail' => array(
 									'className' => 'TorrentDetail',
 									'foreignKey' => 'torrent_id',
@@ -24,8 +30,8 @@ class TorrentsController extends AppController {
 									'conditions' => '',
 									'fields' => '',
 									'order' => '')
-					)
-			)
+		)
+		)
 		);
 		$this->set('torrent', $this->Torrent->read(null, $id));
 	}
@@ -34,7 +40,7 @@ class TorrentsController extends AppController {
 		if (!empty($this->data)) {
 			//动态增加表关联 Creating Associations on the Fly		
 			$this->Torrent->bindModel(
-				array('hasOne'=>array(
+			array('hasOne'=>array(
 						'TorrentDetail' => array(
 										'className' => 'TorrentDetail',
 										'foreignKey' => 'torrent_id',
@@ -42,8 +48,8 @@ class TorrentsController extends AppController {
 										'conditions' => '',
 										'fields' => '',
 										'order' => '')
-						)
-				)
+			)
+			)
 			);
 			/** 用户信息 */
 			$auth = $this->Auth->user();
@@ -74,9 +80,9 @@ class TorrentsController extends AppController {
 			}
 			// 保存文件
 			move_uploaded_file($fn,  $des_file);
-			
+
 			//保存xbt_file
-			$this->data['XbtFile']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']); 
+			$this->data['XbtFile']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']);
 			$this->data['XbtFile']['mtime'] = time();
 			$this->data['XbtFile']['ctime'] = time();
 			$this->Torrent->XbtFile->save($this->data);
@@ -89,15 +95,15 @@ class TorrentsController extends AppController {
 			if(isset($torrent_info[0]['info']['length'])){
 				$count_file_size = $torrent_info[0]['info']['length'];
 			}
-			$this->data['Torrent']['file_size'] = $count_file_size; 
-			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']); 
-			
+			$this->data['Torrent']['file_size'] = $count_file_size;
+			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']);
+
 			$this->Torrent->create();
 			if ($this->Torrent->save($this->data)) {
 				$this->data['TorrentDetail']['cv_type_id'] = $this->data['Torrent']['cv_type_id'];
 				$this->data['TorrentDetail']['torrent_id'] = $this->Torrent->id;
 				$this->Torrent->TorrentDetail->save($this->data);
-				
+
 				$this->Session->setFlash(__('The Torrent has been saved', true));
 				$this->redirect(array('action'=>'index'));
 			} else {
@@ -115,7 +121,7 @@ class TorrentsController extends AppController {
 	function edit($id = null) {
 		//动态增加表关联 Creating Associations on the Fly		
 		$this->Torrent->bindModel(
-			array('hasOne'=>array(
+		array('hasOne'=>array(
 					'TorrentDetail' => array(
 									'className' => 'TorrentDetail',
 									'foreignKey' => 'torrent_id',
@@ -123,8 +129,8 @@ class TorrentsController extends AppController {
 									'conditions' => '',
 									'fields' => '',
 									'order' => '')
-					)
-			)
+		)
+		)
 		);
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Torrent', true));
