@@ -1,0 +1,33 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+TorrentComponent Define
+
+
+= Details =
+
+
+class TorrentComponent extends Object {
+    function parse_file($file_name){
+       // some codes
+       return array();
+    }
+
+    function addannounce($url){
+      // some codes
+      return true;
+    }
+}
+
+
+array结构：
+
+array['announce']
+array['announce-list']
+array['encoding']
+array['files']
+array['private']
+array['info_hash']
+array['publisher']
+array['publisher-url']
