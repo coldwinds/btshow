@@ -1,6 +1,7 @@
+#summary data exchange format for ajax
 #labels Phase-Design
-= Introduction =
 
+= Introduction =
 ajax.php interface data exchange format for ajax 
 
 = Details =
