@@ -92,7 +92,7 @@ App::import('Vendor','TorrentFile');
 
 文件放在 app/ vendor/  下面,
 
-TorrentFile 是类名，对应的文件名是 首字母小写 用下划线连接单词,torrent_file.php
+`TorrentFile` 是类名，对应的文件名是 首字母小写 用下划线连接单词,torrent_file.php
 {{{
 
 App::import('Vendor','TorrentFile');
