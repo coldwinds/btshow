@@ -1,4 +1,4 @@
-# 种子文件解析组件接口定义
+# interface of TorrentParser.
 
 = Introduction =
 
