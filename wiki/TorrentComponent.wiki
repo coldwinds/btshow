@@ -1,24 +1,20 @@
-#summary One-sentence summary of this page.
+# 种子文件解析组件接口定义
 
 = Introduction =
 
-TorrentComponent Define
+提供种子中的annouce和files等信息的解析,返回格式定义。
 
 
 = Details =
 
-
+{{{
 class TorrentComponent extends Object {
     function parse_file($file_name){
        // some codes
        return array();
     }
-
-    function addannounce($url){
-      // some codes
-      return true;
-    }
 }
+}}}
 
 
 array结构：
