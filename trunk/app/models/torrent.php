@@ -30,6 +30,16 @@ class Torrent extends AppModel {
 								'order' => ''
 			)
 	);
+	
+	public $hasOne	=	array(
+		'TorrentDetail' => array(
+									'className' => 'TorrentDetail',
+									'foreignKey' => 'torrent_id',
+									'dependent' => false,
+									'conditions' => '',
+									'fields' => '',
+									'order' => ''
+		)
+	);
 
 }
-?>
