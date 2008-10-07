@@ -20,19 +20,7 @@ class TorrentsController extends AppController {
 			$this->Session->setFlash(__('Invalid Torrent.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		//动态增加表关联 Creating Associations on the Fly		
-		$this->Torrent->bindModel(
-		array('hasOne'=>array(
-					'TorrentDetail' => array(
-									'className' => 'TorrentDetail',
-									'foreignKey' => 'torrent_id',
-									'dependent' => false,
-									'conditions' => '',
-									'fields' => '',
-									'order' => '')
-		)
-		)
-		);
+		$this->Torrent->contain(array('TorrentDetail', 'User', 'Team', 'CvType', 'XbtFile'));
 		$this->set('torrent', $this->Torrent->read(null, $id));
 	}
 
