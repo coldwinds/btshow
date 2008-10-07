@@ -41,7 +41,7 @@ class TorrentsController extends AppController {
 			/* 解析文件 */
 			$fn = $this->data['Torrent']['tfile']['tmp_name'];
 			$torrent_info = $this->TorrentParser->parse_file($fn);
-			$des_file = WWW_ROOT.'files'.DS.$torrent_info[0]['info_hash'].'.torrent';
+			$des_file = WWW_ROOT.'files'.DS.$torrent_info['info_hash'].'.torrent';
 			if(file_exists($des_file)){
 				$res = $this->Torrent->findByInfoHash(pack('H*',$torrent_info['info_hash']));
 				if($res){
@@ -61,17 +61,9 @@ class TorrentsController extends AppController {
 			$this->data['XbtFile']['ctime'] = time();
 			$this->Torrent->XbtFile->save($this->data);
 			
-			//文件列表
-			$count_file_size = 0;
-			if(isset($torrent_info['files'])){
-				foreach ( $torrent_info['files'] as $value ){
-					$count_file_size += (int)$value['size'];
-				}
-			}
-			
 			$this->data['TorrentDetail']['torrent_filelist'] = serialize($torrent_info['files']);
-			$this->data['Torrent']['file_size'] = $count_file_size;
-			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info[0]['info_hash']);
+			$this->data['Torrent']['file_size'] = $torrent_info['size'];
+			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info['info_hash']);
 
 			$this->Torrent->create();
 			if ($this->Torrent->save($this->data)) {
