@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: core.php 7296 2008-06-27 09:09:03Z gwoo $ */
+/* SVN FILE: $Id: core.php 7690 2008-10-02 04:56:53Z nate $ */
 /**
  * This is core configuration file.
  *
@@ -21,9 +21,9 @@
  * @package			cake
  * @subpackage		cake.app.config
  * @since			CakePHP(tm) v 0.2.9
- * @version			$Revision: 7296 $
- * @modifiedby		$LastChangedBy: gwoo $
- * @lastmodified	$Date: 2008-06-27 02:09:03 -0700 (Fri, 27 Jun 2008) $
+ * @version			$Revision: 7690 $
+ * @modifiedby		$LastChangedBy: nate $
+ * @lastmodified	$Date: 2008-10-02 00:56:53 -0400 (Thu, 02 Oct 2008) $
  * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -66,7 +66,7 @@
  * 'admin' 		-> admin_index() and /admin/controller/index
  * 'superuser' -> superuser_index() and /superuser/controller/index
  */
-	Configure::write('Routing.admin', 'admin');
+	//Configure::write('Routing.admin', 'admin');
 
 /**
  * Turn off all caching application-wide.
@@ -150,7 +150,7 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'aBL7du30mh3dgzfbVfX9fxph49hdSwybO2Cnffde');
+	Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');
 /**
  * Compress CSS output by removing comments, whitespace, repeating tags, etc.
  * This requires a/var/cache directory to be writable by the web server for caching.
