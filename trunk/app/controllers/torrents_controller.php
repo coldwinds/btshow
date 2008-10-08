@@ -1,9 +1,8 @@
 <?php
 class TorrentsController extends AppController {
-
 	var $name = 'Torrents';
 	var $helpers = array('Html', 'Form');
-	var $components = array('TorrentParser','Auth', 'Acl');
+	var $components = array('TorrentParser');
 
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -60,7 +59,7 @@ class TorrentsController extends AppController {
 			$this->data['XbtFile']['mtime'] = time();
 			$this->data['XbtFile']['ctime'] = time();
 			$this->Torrent->XbtFile->save($this->data);
-			
+
 			$this->data['TorrentDetail']['torrent_filelist'] = serialize($torrent_info['files']);
 			$this->data['Torrent']['file_size'] = $torrent_info['size'];
 			$this->data['Torrent']['info_hash'] = pack('H*',$torrent_info['info_hash']);
@@ -115,7 +114,7 @@ class TorrentsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Torrent->del($id)) {
-			
+
 			$this->Session->setFlash(__('Torrent deleted', true));
 			$this->redirect(array('action'=>'index'));
 		}
