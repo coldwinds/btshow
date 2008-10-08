@@ -104,7 +104,7 @@ class UsersController extends AppController {
 
 	function register() {
 		if ($this->data) {
-			if ($this->data['User']['password'] == $this->User->password($this->data['User']['password_confirm'])) {
+			if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
 				$this->User->create();
 				$this->User->save($this->data);
 			}
