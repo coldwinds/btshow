@@ -34,5 +34,16 @@ class User extends AppModel {
 			)
 	);
 
+
+	function hashPasswords($data) {
+		if (isset($data[$this->alias]['password'])) {
+			$data[$this->alias]['password']	=	$this->password($data[$this->alias]['password']);
+		}
+		return $data;
+	}
+
+	function password($password) {
+		return md5($password);
+	}
+
 }
-?>
