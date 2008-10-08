@@ -36,7 +36,7 @@ ul.block_1 li {padding:5px; margin:0;}
 </div>
 
 
-<div style="border:1px solid #cccccc; text-align:center; padding:10px; margin-top:5px;"><?php echo $this->element('torrents_new', array('torrents' => $this->requestAction(array('controller' => 'torrents', 'action' => 'index')), 'cache'=>'+1 hour'))?></div>
+<div style="border:1px solid #cccccc; text-align:center; padding:10px; margin-top:5px;"><?php echo $this->element('torrents_new', array('cache' => '1 day'))?></div>
 
 <div style="border:1px solid #cccccc; text-align:center; padding:10px; margin-top:5px;">这里是一块</div>
 
