@@ -1,52 +1,107 @@
 #summary introduction to the strcuture and function of the database used by btshow
-#labels Phase-Design,Deprecated
+#labels Phase-Design
 
 = Introduction =
 
 = Tables =
-The prefix of the database is specified by user. Here we take `shw_` as example.
+The prefix of the database is specified by user. Here we take `bhw_` as example.
 
-== shw_tag ==
-This table stores information about metadata tags themselves. 
 
-It has 3 columns:
- # id
- # name
- # control
+== users ==
+{{{
+CREATE TABLE `bhw_users` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  `team_id` int(11) unsigned default NULL,
+  `email` varchar(80) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+}}}
 
-`name' column has the name of tags. User can customize the organization of metadata tags.
+== groups ==
+{{{
+CREATE TABLE `bhw_groups` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL,
+  `created` datetime default NULL,
+  `modified` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='group contains many users, every user must have one group, r';
+}}}
 
-`control' means whether the tag's value are limited to a controlled vocabulary specified by user.
+== teams ==
+{{{
+CREATE TABLE `bhw_teams` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `name` varchar(40) NOT NULL,
+  `introduce` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='team contains many users, team leader can manager team.';
+}}}
 
-_FIXME: user should always use english tagname in db?_
+== xbt_files ==
 
- * sql to create the table:
-`CREATE TABLE shw_tag (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30), control BIT)`
+{{{
+CREATE TABLE `xbt_files` (
+  `fid` int(11) unsigned NOT NULL auto_increment,
+  `info_hash` blob NOT NULL,
+  `leechers` int(11) NOT NULL default '0',
+  `seeders` int(11) NOT NULL default '0',
+  `completed` int(11) NOT NULL default '0',
+  `flags` int(11) NOT NULL default '0',
+  `mtime` int(11) NOT NULL default '0',
+  `ctime` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`fid`),
+  KEY `info_hash` (`info_hash`(1))
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='the table is manager by xbt tracker,\r\nFK use info_hash.';
+}}}
 
-== shw_tag_controlled_vocabulary ==
-This table has customized controlled vocabulary of different tag.
+== torrents ==
 
-It has 2 columns:
- # tagid
- # value
+{{{
+CREATE TABLE `bhw_torrents` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `user_id` int(11) unsigned NOT NULL default '0',
+  `team_id` int(11) unsigned default NULL,
+  `cv_type_id` int(11) unsigned NOT NULL,
+  `info_hash` blob NOT NULL,
+  `publisher` varchar(40) NOT NULL default '',
+  `title_style` varchar(20) NOT NULL default '',
+  `title` varchar(255) NOT NULL,
+  `link_url` varchar(255) default 'Null',
+  `ip` varchar(15) NOT NULL default '',
+  `file_size` bigint(20) unsigned NOT NULL default '0' COMMENT 'unit: B',
+  `is_top` tinyint(1) NOT NULL default '0',
+  `is_reseed` tinyint(1) NOT NULL default '0',
+  `is_commend` tinyint(1) NOT NULL default '0',
+  `is_local` tinyint(1) NOT NULL default '0',
+  `modified` datetime default NULL,
+  `created` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `info_hash` (`info_hash`(20))
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+}}}
 
-defining possible values for a tag. NB: tagid has multiple values.
+== torrent_details ==
 
- * sql to create the table
-`CREATE TABLE shw_tag_controlled_vocabulary (tagid INT, value VARCHAR(30), INDEX tidx (tagid))`
-
-_FIXME: user should always use english ctl_vcblr in db?_
-
-== shw_entry ==
-This table describes all information of a upload torrent resource with various tags.
-
-It has 4 columns:
- # id
- # tagid
- # value
- # controlled
-
-the `controlled' column indicate whether the value is in its corresponding controlled vocabulary.
-
- * sql to create the table
-`CREATE TABLE shw_entry (id INT AUTO_INCREMENT, tagid INT, value TEXT, controlled BIT,  PRIMARY KEY(id, tagid), INDEX tidx (tagid), FULLTEXT INDEX valx (value))`
+{{{
+CREATE TABLE `bhw_torrent_details` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `part_number` smallint(6) unsigned default NULL,
+  `torrent_filelist` blob,
+  `torrent_id` int(11) unsigned NOT NULL,
+  `cv_type_id` int(11) unsigned default NULL,
+  `cv_topic_id` int(11) unsigned default NULL,
+  `cv_genre_id` int(11) unsigned default NULL,
+  `cv_format_id` int(11) unsigned default NULL,
+  `cv_origin_id` int(11) unsigned default NULL,
+  `intro` text,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='torrent details for unique torrent. ';
+}}}
