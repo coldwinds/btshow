@@ -13,11 +13,11 @@
 
 2.设计数据模型
 
-  2.1 设计用户角色关系 purview_design
+  2.1 设计用户角色关系 PurviewDesign
+ 
+  2.2 设计权限 PurviewDesign
 
-  2.2 设计权限 purview_design
-
-  2.3 设计CV (受控词汇) PageName
+  2.3 设计CV (受控词汇) ControlledVocabularySpecs
 
 3.组件设计
 
