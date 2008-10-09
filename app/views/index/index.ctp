@@ -1,8 +1,12 @@
-<div class="wrap_block">登陆信息模块</div>
+<div class="wrap_block" style="border:0;">
+	<?php echo $this->element('torrents_category', array('cache' => '1 day'))?>
+</div>
 
 
 
-<div class="wrap_block">搜索模块</div>
+<div class="wrap_block">
+	<center><input type="text" style="width:200px;" /><input type="submit" value="搜索" /></center>
+</div>
 
 
 
