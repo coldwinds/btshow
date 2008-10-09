@@ -12,10 +12,29 @@ class TorrentsController extends AppController {
 
 	function index() {
 		$this->Torrent->recursive = 0;
-		$torrents	=	$this->paginate();
+		
 		if(isset($this->params['requested'])) {
-             return $torrents;
+			$conditions	=	array();
+			if (isset($this->params['getType'])) {
+				if($this->params['getType'] == 'top') {
+					//这里可以设置 热门推荐 的条件
+					$conditions	=	array(
+						'order'	=>	array('Torrent.is_commend DESC'),
+					);
+				} elseif ($this->params['getType'] == 'new') {
+					//这里可以设置 最近发布 的条件
+					$conditions	=	array(
+						'order'	=>	array('Torrent.modified DESC'),
+					);
+				}
+			} else {
+				return array();
+			}
+			
+			return $this->Torrent->find('all', $conditions);
         }
+        
+        $torrents	=	$this->paginate();
 		$this->set('torrents', $torrents);
 	}
 
