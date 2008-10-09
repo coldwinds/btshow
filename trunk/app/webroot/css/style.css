@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+
+#container {
+	margin:0 auto;
+	width:970px;
+}
+
+#header {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+#header .logo, #header .ad{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+	height:80px;
+	text-align:center;
+	line-height:80px;
+}
+#header .logo {
+	float:left;
+	width:200px;
+	border:1px solid #cccccc;
+}
+#header .ad {
+	float:right;
+	width:750px;
+	border:1px solid #cccccc;
+}
+
+#content {
+	background: #fff;
+	clear: both;
+	color: #333;
+	padding:0;
+}
+
+.wrap_block {
+	margin-top:10px;
+	border:1px solid #cccccc;
+}
+
+.block_title {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+.block_title .title {
+	float:left;
+}
+.block_title .rss {
+	float:right;
+}
+
+#footer {
+	text-align:center;
+}
