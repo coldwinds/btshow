@@ -12,7 +12,7 @@
 	<th><?php echo __('publisher');?></th>
 </tr>
 <?php
-$torrents = $this->requestAction(array('controller' => 'torrents', 'action' => 'index', 'getType' => 'new'));
+$torrents = $this->requestAction(array('controller' => 'torrents', 'action' => 'index', 'getType' => 'top'));
 $i = 0;
 foreach ($torrents as $torrent):
 	$class = null;
