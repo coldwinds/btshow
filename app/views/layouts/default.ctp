@@ -18,10 +18,7 @@
 </head>
 <body>
 	<div id="container">
-		<ul id="header">
-			<li class="logo">logo</li>
-			<li class="ad">ad</li>
-		</ul>
+		<?php echo $this->element('header')?>
 		<div id="content">
 			<?php
 			if ($session->check('Message.flash')) {
@@ -32,9 +29,7 @@
 			<?php echo $content_for_layout; ?>
 
 		</div>
-		<div id="footer">
-			Copyright &copy 2008
-		</div>
+		<?php echo $this->element('footer')?>
 	</div>
 	<?php echo $cakeDebug; ?>
 </body>
