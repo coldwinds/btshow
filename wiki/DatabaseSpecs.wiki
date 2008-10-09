@@ -1,5 +1,5 @@
 #summary introduction to the strcuture and function of the database used by btshow
-#labels Phase-Design
+#labels Phase-Design,Deprecated
 
 = Introduction =
 
