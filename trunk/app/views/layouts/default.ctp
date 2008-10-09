@@ -24,9 +24,12 @@
 		</ul>
 		<div id="content">
 			<?php
-				if ($session->check('Message.flash')):
-						$session->flash();
-				endif;
+			if ($session->check('Message.flash')) {
+				$session->flash();
+			}
+			if ($session->check('Message.auth')) {
+				$session->flash('auth');
+			}
 			?>
 
 			<?php echo $content_for_layout; ?>
