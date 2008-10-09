@@ -3,10 +3,20 @@ class CvTypesController extends AppController {
 
 	var $name = 'CvTypes';
 	var $helpers = array('Html', 'Form');
+	
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allowedActions = array('index');
+	}
+	
 
 	function index() {
 		$this->CvType->recursive = 0;
-		$this->set('cvTypes', $this->paginate());
+		$cvTypes	=	$this->paginate();
+		if(isset($this->params['requested'])) {
+             return $cvTypes;
+        }
+		$this->set('cvTypes', $cvTypes);
 	}
 
 	function view($id = null) {
