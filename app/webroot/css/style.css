@@ -15,6 +15,17 @@ a:hover {
 	text-decoration:none;
 }
 
+input, textarea {
+	clear: both;
+	font-size: 12px;
+	padding: 2px;
+	width: auto;
+}
+
+label {
+	display:inline;
+}
+
 #container {
 	margin:0 auto;
 	width:970px;
