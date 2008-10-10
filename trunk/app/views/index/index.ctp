@@ -5,7 +5,11 @@
 
 
 <div class="wrap_block">
-	<center><input type="text" style="width:200px;" /><input type="submit" value="搜索" /></center>
+	<center>
+		<?php echo $form->create('Torrent', array('action' => 'search'))?>
+		<?php echo $form->input('s', array('label' => '关键字：', 'div' => false))?>
+		<?php echo $form->end(array('label' => '搜索', 'div' => false))?>
+	</center>
 </div>
 
 
