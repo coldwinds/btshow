@@ -38,13 +38,14 @@ class TorrentsController extends AppController {
 		$this->set('torrents', $torrents);
 	}
 
-	function view($id = null) {
-		if (!$id) {
+	function view($id) {
+		$this->Torrent->contain(array('TorrentDetail', 'User', 'Team', 'CvType', 'XbtFile'));
+		$data	=	$this->Torrent->read(null, $id);
+		if (!$data) {
 			$this->Session->setFlash(__('Invalid Torrent.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Torrent->contain(array('TorrentDetail', 'User', 'Team', 'CvType', 'XbtFile'));
-		$this->set('torrent', $this->Torrent->read(null, $id));
+		$this->set('torrent', $data);
 	}
 
 	function add() {
