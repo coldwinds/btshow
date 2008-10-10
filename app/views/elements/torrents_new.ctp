@@ -34,7 +34,7 @@ foreach ($torrents as $torrent):
 			<?php echo $torrent['Torrent']['is_commend']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['Torrent']['title']; ?>
+			<?php echo $html->link($torrent['Torrent']['title'], array('controller' => 'torrents', 'action' => 'view', $torrent['Torrent']['id'])) ?>
 		</td>
 
 		<td>
