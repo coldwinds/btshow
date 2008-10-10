@@ -1,5 +1,19 @@
 @CHARSET "UTF-8";
 
+body {
+	font-family:font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:12px;
+}
+
+a {
+	text-decoration: none;
+	background:transparent;
+}
+a:hover {
+	background:transparent;
+	color: #003d4c;
+	text-decoration:none;
+}
 
 #container {
 	margin:0 auto;
@@ -46,12 +60,20 @@
 	list-style-type:none;
 	padding:0;
 	margin:0;
+	background-color:#ccc;
+	height:20px;
+	line-height:20px;
+	border:1px solid #cccccc;
 }
 .block_title .title {
 	float:left;
 }
 .block_title .rss {
 	float:right;
+}
+.block_title .rss a {
+	background:url(../img/icon_rss.gif) no-repeat left -3px;
+	padding-left:20px;
 }
 
 #footer {
