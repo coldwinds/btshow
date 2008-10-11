@@ -25,13 +25,14 @@ class TorrentsController extends AppController {
 
 	function index() {
 		$this->Torrent->recursive = 0;
-
+		
+		//retrun result
 		if(isset($this->params['requested'])) {
 			return $this->paginate();
+		}else{
+			$torrents = $this->paginate();
+			$this->set('torrents', $torrents);
 		}
-		
-		$torrents = $this->paginate();
-		$this->set('torrents', $torrents);
 	}
 
 	function view($id) {
