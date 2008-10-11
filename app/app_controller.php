@@ -4,6 +4,9 @@ class AppController extends Controller {
 	var $components = array('Auth', 'Acl');
 	
 	function beforeFilter() {
+		//FIXME 临时允许所有action,在最后阶段配置权限
+		$this->Auth->allowedActions = array('*');
+		
 		//Configure AuthComponent
 		$this->Auth->authorize = 'actions';
 		$this->Auth->actionPath = 'controllers/';
