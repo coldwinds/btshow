@@ -6,7 +6,7 @@ class TorrentsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allowedActions = array('index', 'view');
+		$this->Auth->allowedActions = array('index', 'view', 'hot');
 	}
 
 	/**
@@ -25,7 +25,7 @@ class TorrentsController extends AppController {
 
 	function index() {
 		$this->Torrent->recursive = 0;
-		
+
 		//retrun result
 		if(isset($this->params['requested'])) {
 			return $this->paginate();
