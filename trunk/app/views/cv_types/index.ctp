@@ -25,7 +25,7 @@ foreach ($cvTypes as $cvType):
 			<?php echo $cvType['CvType']['id']; ?>
 		</td>
 		<td>
-			<?php echo $cvType['CvType']['type']; ?>
+			<?php echo $cvType['CvType']['name']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action'=>'view', $cvType['CvType']['id'])); ?>
