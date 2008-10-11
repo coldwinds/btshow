@@ -23,10 +23,10 @@ foreach ($data as $torrent):
 			<?php echo $torrent['Torrent']['created']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['CvType']['name']?>
+			<?php echo $html->link($torrent['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $torrent['CvType']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $torrent['Team']['name']?>
+			<?php echo $html->link($torrent['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $torrent['Team']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $torrent['Torrent']['is_commend'] ?  $html->link('R','/',array('class'=>'red_bold')): "" ; ?>

@@ -1,5 +1,5 @@
 <div class="wrap_block" style="border:0;">
-	<?php echo $this->element('torrents_category', array('cache' => '1 day'))?>
+	<?php echo $this->element('torrents_category', array('cache' => '0 day'))?>
 </div>
 
 <div class="wrap_block">
