@@ -9,32 +9,28 @@ class TorrentsController extends AppController {
 		$this->Auth->allowedActions = array('index', 'view');
 	}
 
+	/**
+	 * hot torrent list
+	 */
+	function hot() {
+		//TODO 这里可以设置 热门推荐 的条件
+		if(isset($this->params['requested'])) {
+			$conditions	= array(
+				'limit' => 20,
+				'order'	=>	array('Torrent.is_commend DESC'),
+			);
+			return $this->Torrent->find('all', $conditions);
+		}
+	}
 
 	function index() {
 		$this->Torrent->recursive = 0;
-		
+
 		if(isset($this->params['requested'])) {
-			$conditions	=	array();
-			if (isset($this->params['getType'])) {
-				if($this->params['getType'] == 'top') {
-					//这里可以设置 热门推荐 的条件
-					$conditions	=	array(
-						'order'	=>	array('Torrent.is_commend DESC'),
-					);
-				} elseif ($this->params['getType'] == 'new') {
-					//这里可以设置 最近发布 的条件
-					$conditions	=	array(
-						'order'	=>	array('Torrent.modified DESC'),
-					);
-				}
-			} else {
-				return array();
-			}
-			
-			return $this->Torrent->find('all', $conditions);
-        }
-        
-        $torrents	=	$this->paginate();
+			return $this->paginate();
+		}
+		
+		$torrents = $this->paginate();
 		$this->set('torrents', $torrents);
 	}
 

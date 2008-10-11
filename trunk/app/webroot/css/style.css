@@ -90,3 +90,8 @@ label {
 #footer {
 	text-align:center;
 }
+
+.red_bold {
+	color: red;
+	font-weight:bold;
+}
