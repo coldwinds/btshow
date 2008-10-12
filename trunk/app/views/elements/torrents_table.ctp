@@ -12,7 +12,7 @@
 </tr>
 <?php
 $i = 0;
-foreach ($data as $torrent):
+foreach ($data as $entry):
 	$class = null;
 	if ($i++ % 2 == 0) {
 		$class = ' class="altrow"';
@@ -20,32 +20,32 @@ foreach ($data as $torrent):
 ?>
 	<tr<?php echo $class;?>>
 		<td>
-			<?php echo $torrent['Torrent']['created']; ?>
+			<?php echo $entry['Torrent']['created']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($torrent['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $torrent['CvType']['id'])); ?>
+			<?php echo $html->link($entry['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $entry['CvType']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $html->link($torrent['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $torrent['Team']['id'])); ?>
+			<?php echo $html->link($entry['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $entry['Team']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $torrent['Torrent']['is_commend'] ?  $html->link('R','/',array('class'=>'red_bold')): "" ; ?>
-			<?php echo $html->link($torrent['Torrent']['title'], array('controller' => 'torrents', 'action' => 'view', $torrent['Torrent']['id'])) ?>
+			<?php echo $entry['Torrent']['is_commend'] ?  $html->link('R','/',array('class'=>'red_bold')): "" ; ?>
+			<?php echo $html->link($entry['Torrent']['title'], array('controller' => 'torrents', 'action' => 'view', $entry['Torrent']['id'])) ?>
 		</td>
 		<td>
-			<?php echo $torrent['XbtFile']['seeders']; ?>
+			<?php echo $entry['XbtFile']['seeders']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['XbtFile']['leechers']; ?>
+			<?php echo $entry['XbtFile']['leechers']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['XbtFile']['completed']; ?>
+			<?php echo $entry['XbtFile']['completed']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['Torrent']['file_size']; ?>
+			<?php echo $entry['Torrent']['file_size']; ?>
 		</td>
 		<td>
-			<?php echo $torrent['User']['username']?>
+			<?php echo $entry['User']['username']?>
 		</td>
 	</tr>
 <?php endforeach; ?>

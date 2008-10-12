@@ -26,11 +26,19 @@ class TorrentsController extends AppController {
 	function index() {
 		$this->Torrent->recursive = 0;
 
+		$scope = array();
+		if (isset($this->passedArgs['cvType'])){
+			$scope['Torrent.cv_type_id']=$this->passedArgs['cvType'];
+		}
+		if (isset($this->passedArgs['Team'])){
+			$scope['Torrent.team_id']=$this->passedArgs['Team'];	
+		}
+
+		$torrents = $this->paginate(null,$scope);
 		//retrun result
 		if(isset($this->params['requested'])) {
-			return $this->paginate();
+			return $torrents;
 		}else{
-			$torrents = $this->paginate();
 			$this->set('torrents', $torrents);
 		}
 	}
