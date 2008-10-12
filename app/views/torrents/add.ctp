@@ -4,6 +4,7 @@
  		<legend><?php __('Add Torrent');?></legend>
 	<?php
 		echo $form->input('cv_type_id');
+		echo $html->link('添加', 'javascript:void(0)', array('onclick' => "addType('TorrentCvTypeId', '". $html->url(array('controller' => 'cvTypes', 'action' => 'add')) ."', 'data[CvType][name]')"));
 		echo $form->input('TorrentDetail.cv_topic_id');
 		echo $form->input('TorrentDetail.cv_genre_id');
 		echo $form->input('TorrentDetail.cv_format_id');
@@ -30,3 +31,26 @@
 		<li><?php echo $html->link(__('New Torrent Detail', true), array('controller'=> 'torrent_details', 'action'=>'add')); ?> </li>
 	</ul>
 </div>
+
+
+
+<?php $this->addScript($javascript->link('jquery'))?>
+<script type="text/javascript">
+function addType(objId, addUrl, modelName) {
+	var _name = prompt("请输入分类名称", "");
+	if (_name == null) { return; }
+	if (_name.length > 2) {
+		$.ajax({
+		        url: addUrl,
+		        type: "POST",
+		        data: modelName+"="+_name,
+		        dataType: 'json',
+			success: function (obj) {
+				$('#' + objId).append("<option value='"+ obj.id +"'>"+ obj.name +"</option>").val(obj.id);
+			}
+		});
+	} else {
+		alert('分类名称必须长于2个字');
+	}
+}
+</script>
