@@ -3,6 +3,7 @@ class CvTypesController extends AppController {
 
 	var $name = 'CvTypes';
 	var $helpers = array('Html', 'Form');
+	var $components = array('RequestHandler');
 
 	function index() {
 		$this->CvType->recursive = 0;
@@ -29,6 +30,12 @@ class CvTypesController extends AppController {
 		if (!empty($this->data)) {
 			$this->CvType->create();
 			if ($this->CvType->save($this->data)) {
+				if ($this->RequestHandler->isAjax()) {
+					Configure::write('debug', 0);
+					$this->data['CvType']['id'] = $this->CvType->id;
+					echo json_encode($this->data['CvType']);
+					exit;
+				}
 				$this->Session->setFlash(__('The CvType has been saved', true));
 				$this->redirect(array('action'=>'index'));
 			} else {

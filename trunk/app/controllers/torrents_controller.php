@@ -1,7 +1,7 @@
 <?php
 class TorrentsController extends AppController {
 	var $name = 'Torrents';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form', 'Javascript');
 	var $components = array('TorrentParser');
 
 	function beforeFilter() {
