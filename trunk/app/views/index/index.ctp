@@ -1,7 +1,3 @@
-<div class="wrap_block" style="border:0;">
-	<?php echo $this->element('torrents_category', array('cache' => '0 day'))?>
-</div>
-
 <div class="wrap_block">
 	<center>
 		<?php echo $form->create('Torrent', array('action' => 'search'))?>
@@ -9,10 +5,6 @@
 		<?php echo $form->end(array('label' => '搜索', 'div' => false))?>
 	</center>
 </div>
-
-
-
-
 
 <div class="wrap_block" style="border:0;">
 	<ul class="block_title">
