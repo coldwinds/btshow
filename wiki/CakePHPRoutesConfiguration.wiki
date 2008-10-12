@@ -18,8 +18,6 @@ Before you learn about configuring your own routes, you should know that CakePHP
 http://example.com/controller/action/param1/param2/param3
 }}}
 
-   1. URL pattern default routes:
-   2. http://example.com/controller/action/param1/param2/param3
 
 The URL /posts/view maps to the view() action of the PostsController, and /products/viewClearance maps to the view_clearance() action of the ProductsController. If no action is specified in the URL, the index() method is assumed.
 
@@ -48,22 +46,5 @@ Mapping: ContentsController->view();
 $this->passedArgs['chapter'] = 'models';
 $this->passedArgs['section'] = 'associations';
 
-   1. URL to controller action mapping using default routes:
-   2.
-   3. URL: /monkeys/jump
-   4. Mapping: MonkeysController->jump();
-   5.
-   6. URL: /products
-   7. Mapping: ProductsController->index();
-   8.
-   9. URL: /tasks/view/45
-  10. Mapping: TasksController->view(45);
-  11.
-  12. URL: /donations/view/recent/2001
-  13. Mapping: DonationsController->view('recent', '2001');
-  14. URL: /contents/view/chapter:models/section:associations
-  15. Mapping: ContentsController->view();
-  16. $this->passedArgs['chapter'] = ‘models’;
-  17. $this->passedArgs['section'] = ‘associations’;
 }}}
 Defining your own routes allows you to define how your application will respond to a given URL. Define your own routes in the /app/config/routes.php file using the Router::connect() method.
