@@ -37,10 +37,10 @@
 	</tr>
 	<tr>
 		<th><?php __('Torrent Filelist')?></th>
-		<td><?php $filelist = unserialize($torrent['TorrentDetail']['torrent_filelist']); ?>
+		<td><?php $filelist = unserialize($torrent['TorrentDetail']['torrent_filelist']);?>
 			<table>
 				<?php foreach ($filelist as $file ): ?>
-				<tr><td><?php echo $file['path'] ?></td><td><?php echo $file['size'] ?></td></tr>
+				<tr><td><?php echo $file['name'] ?></td><td><?php echo $file['length'] ?></td></tr>
 				<?php endforeach; ?>
 			</table>
 		</td>
