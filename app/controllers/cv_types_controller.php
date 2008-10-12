@@ -12,7 +12,7 @@ class CvTypesController extends AppController {
 
 	function index() {
 		$this->CvType->recursive = 0;
-		$cvTypes	=	$this->paginate();
+		$cvTypes = $this->paginate();
 		if(isset($this->params['requested'])) {
              return $cvTypes;
         }
@@ -24,7 +24,11 @@ class CvTypesController extends AppController {
 			$this->Session->setFlash(__('Invalid CvType.', true));
 			$this->redirect(array('action'=>'index'));
 		}
+		$this->CvType->recursive = 0;
 		$this->set('cvType', $this->CvType->read(null, $id));
+		
+		$entry = $this->paginate('Torrent',array('Torrent.cv_type_id'=>$id));
+		$this->set('entry', $entry);
 	}
 
 	function add() {
