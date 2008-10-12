@@ -67,7 +67,15 @@ label {
 	padding: 0;
 }
 
+#navigation {
+	background: #fff;
+	clear: both;
+	height: 30px;
+	border: 1px solid #cccccc;
+}
+
 .wrap_block {
+	background: #fff;
 	margin-top: 10px;
 	border: 1px solid #cccccc;
 }

@@ -19,6 +19,9 @@
 <body>
 	<div id="container">
 		<?php echo $this->element('header')?>
+		<div id="navigation">
+			<?php echo $this->element('navigation', array('cache' => '0 day'))?>
+		</div>
 		<div id="content">
 			<?php
 			if ($session->check('Message.flash')) {
