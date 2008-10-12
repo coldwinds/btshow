@@ -1,0 +1,67 @@
+#summary 在CakePHP中优化网址：Routes Configuration
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+Routing is a feature that maps URLs to controller actions. It was added to CakePHP to make pretty URLs more configurable and flexible. Using Apache’s mod_rewrite is not required for using routes, but it will make your address bar look much more tidy.
+
+Routes in CakePHP 1.2 have been expanded and can be very powerful.
+
+Before you learn about configuring your own routes, you should know that CakePHP comes configured with a default set of routes. CakePHP’s default routing will get you pretty far in any application. You can access an action directly via the URL by putting its name in the request. You can also pass parameters to your controller actions using the URL.
+
+    URL pattern default routes:
+http://example.com/controller/action/param1/param2/param3
+
+   1. URL pattern default routes:
+   2. http://example.com/controller/action/param1/param2/param3
+
+The URL /posts/view maps to the view() action of the PostsController, and /products/viewClearance maps to the view_clearance() action of the ProductsController. If no action is specified in the URL, the index() method is assumed.
+
+The default routing setup also allows you to pass parameters to your actions using the URL. A request for /posts/view/25 would be equivalent to calling view(25) on the PostsController, for example.
+
+New in CakePHP 1.2 is the ability to use named parameters. You can name parameters and send their values using the URL. A request for /posts/view/title:first+post/category:general would result in a call to the view() action of the PostsController. In that action, you’d find the values of the title and category parameters inside $this->passedArgs[‘title’] and $this->passedArgs[‘category’] respectively.
+
+Some summarizing examples for default routes might prove helpful.
+
+URL to controller action mapping using default routes:
+
+URL: /monkeys/jump
+Mapping: MonkeysController->jump();
+
+URL: /products
+Mapping: ProductsController->index();
+
+URL: /tasks/view/45
+Mapping: TasksController->view(45);
+
+URL: /donations/view/recent/2001
+Mapping: DonationsController->view('recent', '2001');
+
+URL: /contents/view/chapter:models/section:associations
+Mapping: ContentsController->view();
+$this->passedArgs['chapter'] = 'models';
+$this->passedArgs['section'] = 'associations';
+
+   1. URL to controller action mapping using default routes:
+   2.
+   3. URL: /monkeys/jump
+   4. Mapping: MonkeysController->jump();
+   5.
+   6. URL: /products
+   7. Mapping: ProductsController->index();
+   8.
+   9. URL: /tasks/view/45
+  10. Mapping: TasksController->view(45);
+  11.
+  12. URL: /donations/view/recent/2001
+  13. Mapping: DonationsController->view('recent', '2001');
+  14. URL: /contents/view/chapter:models/section:associations
+  15. Mapping: ContentsController->view();
+  16. $this->passedArgs['chapter'] = ‘models’;
+  17. $this->passedArgs['section'] = ‘associations’;
+
+Defining your own routes allows you to define how your application will respond to a given URL. Define your own routes in the /app/config/routes.php file using the Router::connect() method.
