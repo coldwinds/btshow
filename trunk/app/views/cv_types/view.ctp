@@ -1,5 +1,5 @@
 <ul class="block_title">
-	<li class="title"><?php echo $cvType['CvType']['name'] ?></li>
+	<li class="title"><?php echo $html->link($cvType['CvType']['name'], '/')?></li>
 	<li class="rss"><?php echo $html->link('订阅这个栏目', '/')?></li>
 </ul>
 <div class="torrents">
