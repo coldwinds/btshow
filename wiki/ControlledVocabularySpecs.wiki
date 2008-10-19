@@ -1,7 +1,7 @@
 #summary 受控词汇列表定义
 
 = 受控词汇列表 =
-== 类型 ==
+== 类型(type) ==
  # 电视动画
  # 电影动画
  # OVA
@@ -11,29 +11,31 @@
  # 音乐
  # 其他
 
-== 标题 ==
-== 发布组 ==
-== 来源 ==
+== 标题(title) ==
+
+== 发布组(team) ==
+
+== 来源(genre) ==
  # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
  # 漫画/原版,翻译版
  # 游戏/,……?
  # 音乐/EAC,CDRip
-== 语言 ==
+== 语言(language) ==
  # 简体中文
  # 繁体中文
  # 英语
  # 日语
-== 格式 ==
+== 格式(format) ==
  # Video/Matroska,AVI,RealMedia,QuickTime,Ogg
  # Audio/DTS,MP3,WMA,TTA,FLAC,AAC,Ogg,APE,TAK
  # Image/JPEG,PNG,GIF,BMP,TIFF
-== 视频编码 ==
+== 视频编码(video_codec) ==
  # MPEG-1,MPEG-2,AVC,MPEG-4 Part 2,WMV,RealVideo
-== 音频编码 ==
+== 音频编码(audio_codec) ==
  # MP3,AAC,AC3,Vorbis,WMA,RealAudio
-== 字幕格式 ==
+== 字幕格式(subtitle_format) ==
  # 内嵌,内封,外挂
-== 平台 ==
+== 平台(software_platform) ==
  # PC
  # Xbox360
  # PS3
