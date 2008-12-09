@@ -2,14 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.granite</groupId>
   <artifactId>granite-hibernate</artifactId>
-  <version>1.1.0 GA</version>
+  <version>1.1.0.GA</version>
   <description>POM was created from install:install-file</description>
   <dependencies>
   	<dependency>
   		<groupId>org.granite</groupId>
   		<artifactId>granite</artifactId>
-  		<version>1.1.0 GA</version>
-  		<type>jar</type>
+  		<version>1.1.0.GA</version>
   		<scope>compile</scope>
   	</dependency>
   </dependencies>
