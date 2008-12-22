@@ -8,6 +8,8 @@ if(!in_array($_GET['action'], $object_action))
 
 $id = $_GET['id'];
 $type = objecttype($id);
+if(!$_GET['action']=='create')
+	$type = subtype($type);
 
 if(!$type)
 	die('unknown type');
@@ -16,17 +18,14 @@ $obj = getobject($id);
 if(!$obj)
 	die('no such object');
 
-if(!judge($type,$_GET['action'],$obj['rights']))
+if(!rights($type,$_GET['action'],$obj['rights']))
 	die('no rights');
-
-if(!$_GET['action']=='create')
-	$type = subtype($type);
 
 require_once("lib/$type.php");
 
 if($_GET['action']=='create'){
 	if(count($_POST)){
-		$obj = call_user_func("takepost_$type");
+		$obj = takepost();
 		if(!$obj)
 			die('bad post');
 		$id=newobjectid($id);
@@ -34,19 +33,19 @@ if($_GET['action']=='create'){
 		goto("/btshow/index.php?id=$id");
 	}else{
 		require_once('header.php');
-		call_user_func("postform_$type",$id);
+		postform();
 		require_once('footer.php');
 	}
 }elseif($_GET['action']=='edit'){
 	if(count($_POST)){
-		$obj = call_user_func("takepost_$type",$obj);
+		$obj = takepost($obj);
 		if(!$obj)
 			die('bad post');
 		putobject($id, $obj);
 		goto("/btshow/index.php?id=$id");
 	}else{
 		require_once('header.php');
-		call_user_func("postform_$type", $id, $obj);
+		postform($obj);
 		require_once('footer.php');
 	}
 }elseif($_GET['action']=='delete'){
@@ -60,7 +59,7 @@ if($_GET['action']=='create'){
 	goto("/btshow/index.php?id=$id");
 }elseif($_GET['action']=='view'){
 	require_once('header.php');
-	call_user_func("view_$type", $id, $obj);
+	view($obj);
 	require_once('footer.php');
 }
 
