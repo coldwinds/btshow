@@ -28,7 +28,7 @@ function action_log($action, $id){
 function view_log($id){
 	$log = getobject($id);
 	echo "log: {$log['contents']['action']} a {$log['contents']['type']}", getrightsbuttons($id, $log['rights']), "\n";
-	echo "date: ",date('r',$log['contents']['date'],"\n";
+	echo "date: ",date('r',$log['contents']['date']),"\n";
 	echo "editor: ",$log['contents']['editor'],"\n";
 	if($log['contents']['msg'])
 		print_r($log['contents']['msg']);

@@ -10,7 +10,7 @@ function getrights($type, $obj_rights){
 	}
 	return $rights;
 }
-function getrightsbuttons($id, $obj_rights)
+function getrightsbuttons($id, $obj_rights){
 	$rights = getrights(object_type($id), $obj_rights);
 	foreach($rights as $action)
 		$actions[] = " <a href=\"index.php?id=$id&action=$action\">[$action]</a>";

@@ -57,7 +57,7 @@ function summary_thread($id, $thread = false){
 		$authors[] = "<a href=\"index.php?id=user/$author\">{$user['contents']['name']}</a>";
 	}
 	return array(
-	$thread['ended']?"[ended]":"[ongoing]"),
+	$thread['ended']?"[ended]":"[ongoing]",
 	"<a href=\"index.php?id=$id\">{$thread['contents']['title']}</a>".getrightsbuttons($id, $thread['rights']),
 	implode(' &amp; ',$authors),
 	"(".count(getchildren($id)).")");
