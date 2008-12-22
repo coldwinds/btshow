@@ -1,48 +1,46 @@
 <div class="torrents view">
 <h2><?php  __('Torrent');?></h2>
-<table>
+<table class="infobox">
 	<tr>
-		<th><?php __('Title')?></th>
+		<td><?php __('Title')?></td>
 		<td><?php echo $torrent['Torrent']['title']; ?></td>
 	</tr>
 	<tr>
-		<th><?php __('Cv Type')?></th>
+		<td><?php __('Cv Type')?></td>
 		<td><?php echo $html->link($torrent['CvType']['name'], array('controller'=> 'cv_types', 'action'=>'view', $torrent['CvType']['id'])); ?>&nbsp;</td>
 	</tr>
 	<tr>
-		<th><?php __('Team')?></th>
+		<td><?php __('Team')?></td>
 		<td><?php echo $html->link($torrent['Team']['name'], array('controller'=> 'teams', 'action'=>'view', $torrent['Team']['id'])); ?>&nbsp;</td>
 	</tr>
 	<tr>
-		<th><?php __('Publisher')?></th>
+		<td><?php __('Publisher')?></td>
 		<td><?php echo $torrent['Torrent']['publisher']; ?></td>
 	</tr>
 	<tr>
-		<th><?php __('Modified'); ?></th>
+		<td><?php __('Modified'); ?></td>
 		<td><?php echo $torrent['Torrent']['modified']; ?>&nbsp;</td>
 	</tr>
 	<tr>
-		<th><?php __('Created'); ?></th>
+		<td><?php __('Created'); ?></td>
 		<td><?php echo $torrent['Torrent']['created']; ?>&nbsp;</td>
 	</tr>
 	<tr>
-		<th><?php __('Download'); ?></th>
+		<td><?php __('Download'); ?></td>
 		<td><?php 
 		$hash = unpack('H*',$torrent['Torrent']['info_hash']);
 		echo $html->link(__('Download',true),'/files/'.$hash[1].'.torrent') ?>&nbsp;</td>
 	</tr>
 	<tr>
-		<th><?php __('Ip')?></th>
+		<td><?php __('Ip')?></td>
 		<td><?php echo $torrent['Torrent']['ip']; ?></td>
 	</tr>
 	<tr>
-		<th><?php __('Torrent Filelist')?></th>
+		<td><?php __('Torrent Filelist')?></td>
 		<td><?php $filelist = unserialize($torrent['TorrentDetail']['torrent_filelist']);?>
-			<table>
-				<?php foreach ($filelist as $file ): ?>
-				<tr><td><?php echo $file['name'] ?></td><td><?php echo $file['length'] ?></td></tr>
-				<?php endforeach; ?>
-			</table>
+			<pre>
+				<?php foreach ($filelist as $file) cho $file['path'],"\n"; ?>
+			</pre>
 		</td>
 	</tr>
 </table>
