@@ -1,0 +1,195 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	padding: 0px;
+	background: #fff;
+	margin: 0px;
+}
+
+html {
+	font: 12px "lucida grande", tahoma, verdana, lucida, arial, helvetica,
+		sans-serif, "宋体";
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #ffffff;
+}
+
+a:visited {
+	color: #ffffff;
+}
+
+img {
+	border: 0px;
+	vertical-align: middle;
+	color: white;
+}
+
+#body-wrapper {
+	margin: auto;
+	width: 990px;
+	min-width: 990px;
+}
+
+#header {
+	background: #224477;
+	margin: 0px auto;
+	width: 990px;
+	height: 80px;
+}
+
+#logo {
+	float: left;
+	width: 300px;
+	height: 80px;
+}
+
+#links {
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 2px;
+}
+
+#topiclist {
+	
+}
+
+#content {
+	clear: right;
+	padding-left: 10px;
+	padding-bottom: 12px;
+	margin-bottom: 0px;
+	margin-left: 205px;
+	width: auto;
+	border-left-style: none ! important;
+}
+
+#sidebar {
+	float: left;
+	top: 0px;
+	moz-border-radius: 0px 0px 5px 5px;
+	width: 200px;
+	margin: 0px 0px 4px 0px;
+}
+
+#sidebar dd a {
+	border: 0px;
+	display: block;
+	padding-left: 12px;
+	text-indent: 18px;
+	color: black;
+}
+
+#sidebar dl {
+	text-align: left;
+	padding: 2px;
+}
+
+#sidebar dt {
+	padding: 3px 3px 3px 28px;
+	color: #ffffff;
+	letter-spacing: 1px;
+	text-align: left;
+	background-color: #224477;
+	border: 1px solid #cccccc;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0px 0px 4px 0px;
+}
+
+#sidebar dd {
+	padding-left: 0px;
+	line-height: 150%;
+	background-color: #ebeded;
+	margin-bottom: 4px;
+	font-size: 14px;
+}
+
+#cult dd {
+	border: white 1px dashed;
+	overflow: hidden;
+	text-align: center;
+}
+
+#cult dd  a {
+	padding: 3px;
+	margin: 0px 0px 4px 0px;
+	text-align: center;
+	display: inline;
+}
+
+#cult dd  img {
+	display: block;
+	padding: 3px;
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	background: white;
+	margin: 0px auto;
+	border: 1px solid rgb(204, 204, 204);
+}
+
+#search {
+	background-color: #224477;
+	text-align: right;
+	margin-top: 30px;
+	margin-right: 10px;
+}
+
+#advbar {
+	background-color: #cadbff;
+	height: 40px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+#content a {
+	color: black;
+}
+
+#breadcrumb {
+	padding-bottom: 4px;
+}
+
+#breadcrumb a {
+	text-decoration: underline;
+}
+
+#topped {
+	background: rgb(235, 237, 237);
+	border: 1px solid #dde0e1;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#announce {
+	background: rgb(235, 237, 237);
+	padding: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #dde0e1;
+}
+
+#torrentlist {
+	text-align: center;
+}
+
+#paginationcontrol a {
+	color: black;
+}
+
+#footer {
+	background: #224477;
+	margin: 0px auto;
+	width: 100%;
+	height: 80px;
+	clear: both;
+}

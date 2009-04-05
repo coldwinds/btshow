@@ -1,0 +1,31 @@
+<table id="topiclist">
+	<tbody>
+		<tr>
+			<th>張貼日期</th>
+			<th>分類</th>
+			<th nowrap="nowrap">標題</th>
+			<th>種子</th>
+			<th>下載</th>
+			<th>大小</th>
+			<th>作者</th>
+		</tr>
+		<?php foreach ( $this->entries as $entrie ){ ?>
+		<tr>
+			<td><?= $entrie['release_date'] ?></td>
+			<td nowrap="nowrap"><?= $entrie['sort_name'] ?></td>
+			<td><?= $entrie['bt_data_title'] ?></td>
+			<td><?= $entrie['leechers'] ?></td>
+			<td><?= $entrie['seeders'] ?></td>
+			<td><?= $entrie['completed'] ?></td>
+			<td><?= $entrie['user_name'] ?></td>
+		</tr>
+		<?php } ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="9">
+			<?= $this->paginationControl($this->paginator, 'Sliding', 'my_pagination_control.phtml'); ?>
+			</th>
+		</tr>
+	</tfoot>
+</table>

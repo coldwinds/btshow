@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<production webhost="www.dmhy.org">
+		<database adapter="pdo_mysql">
+			<params host="localhost" username="dbuser" password="secret"
+				dbname="dbname" />
+		</database>
+	</production>
+	<development webhost="dev.dmhy.net" extends="production">
+		<database>
+			<params host="localhost" username="root"
+				password="" dbname="dmhyshare" />
+		</database>
+	</development>
+</configdata>

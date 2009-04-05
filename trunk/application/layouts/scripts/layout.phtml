@@ -1,0 +1,40 @@
+<? /* application/layouts/scripts/layout.phtml
+This line outputs the doctype we set in the bootstrap */ ?>
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+// setting the site in the title; possibly in the layout script:
+$this->headTitle('BTShow');
+// setting a separator string for segments:
+//为标题的各部分设置分隔符
+$this->headTitle()->setSeparator(' - ');
+?>
+<?=$this->headTitle()?>
+<?= $this->headLink()->appendStylesheet('/css/global.css') ?>
+</head>
+<body id="body-wrapper">
+
+<? #头部 ?>
+<?= $this->partial('header.phtml') ?>
+
+<? #广告 ?>
+<?= $this->partial('advbar.phtml') ?>
+
+<? #边侧拦 ?>
+<div id="sidebar">
+边侧拦
+<?= $this->action('index', 'category', null, array()); ?>
+<?= $this->action('cult', 'topics', null, array()); ?>
+</div>
+
+<? #主内容区域 ?>
+<div id="content">
+<?= $this->layout()->content ?>
+</div>
+
+<? #页脚 ?>
+<?= $this->partial('footer.phtml') ?>
+</body>
+</html>
