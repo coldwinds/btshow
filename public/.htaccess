@@ -1,0 +1,17 @@
+# Zend Framework rewrite 规则 
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} -s [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^.*$ - [NC,L]
+	RewriteRule ^.*$ /index.php [NC,L]
+</IfModule>
+#  安全性考虑：不允许列表目录内容 
+Options -Indexes 
+# PHP设置 
+php_flag magic_quotes_gpc    off 
+php_flag register_globals    off 
+php_flag short_open_tag     on 
+
+DirectoryIndex index.html index.php
