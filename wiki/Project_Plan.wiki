@@ -28,3 +28,4 @@
 
 = 相关页面 =
   * UsersAdvices
+  * TeamAdvice
