@@ -27,5 +27,5 @@
   # btshow第2期： 加入新功能
 
 = 相关页面 =
-  * UsersAdvices
-  * TeamAdvice
+  * UsersAdvices <= 一般用户的建议
+  * TeamAdvice <= 发布组的建议
