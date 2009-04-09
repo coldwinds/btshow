@@ -22,7 +22,7 @@ CREATE TABLE `btm_literature` (
   `end_time` int(11) default NULL COMMENT '结束时间\0\0R\0',
   `total_episode` int(11) default NULL COMMENT '总集数\0e\0',
   `minute_each_episode` int(11) default NULL COMMENT '每集分钟数\0R\0a\0',
-  `placard_url` varchar(200) default NULL COMMENT '海报',
+  `poster_url` varchar(200) default NULL COMMENT '海报\0s',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
