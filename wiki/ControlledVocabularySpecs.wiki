@@ -1,11 +1,13 @@
 #summary 受控词汇列表定义
 
 = 受控词汇列表 =
-== 类型(type) ==
- # 电视动画
- # 电影动画
- # OVA
- # ONA
+
+==作为resource中的属性==
+
+
+=== 分类(sort) - 可以是多级的 ===
+ # 动画
+ # 电影
  # 漫画
  # 游戏
  # 音乐
@@ -14,6 +16,7 @@
 == 标题(title) ==
 
 == 发布组(team) ==
+
 
 == 来源(genre) ==
  # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
@@ -35,6 +38,13 @@
  # MP3,AAC,AC3,Vorbis,WMA,RealAudio
 == 字幕格式(subtitle_format) ==
  # 内嵌,内封,外挂
+
+== 字幕语言(subtitle_lang) ==
+ # 简体中文
+ # 繁体中文
+ # 英语
+ # 日语
+
 == 平台(software_platform) ==
  # PC
  # Xbox360
