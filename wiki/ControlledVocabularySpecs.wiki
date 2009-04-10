@@ -26,13 +26,16 @@
 
  * 音频编码(audio_codec) 
   # MP3,AAC,AC3,Vorbis,WMA,RealAudio
+
  * 字幕格式(subtitle_format) 
   # 内嵌,内封,外挂
+
  * 字幕语言(subtitle_lang) 
   # 简体中文
   # 繁体中文
   # 英语
   # 日语
+
  * 平台(software_platform) 
   # PC
   # Xbox360
@@ -50,6 +53,7 @@
   # 漫画/原版,翻译版
   # 游戏/,……?
   # 音乐/EAC,CDRip
+
  * 语言(language) 
   # 简体中文
   # 繁体中文
@@ -60,6 +64,4 @@
 
 
 ----
-
-
 
