@@ -4,34 +4,34 @@
 
 ==作为resource中的属性==
 
-* 标题(title)
+ * 标题(title)
 
-* 发布组(team)
+ * 发布组(team)
 
-* 分类(sort) - 可以是多级的
+ * 分类(sort) - 可以是多级的
  # 动画
  # 电影
  # 漫画
  # 游戏
  # 音乐
  # 其他
-* 格式(format) (MKV rmvb avi)
+ * 格式(format) (MKV rmvb avi)
  # Video/Matroska,AVI,RealMedia,QuickTime,Ogg
  # Audio/DTS,MP3,WMA,TTA,FLAC,AAC,Ogg,APE,TAK
  # Image/JPEG,PNG,GIF,BMP,TIFF
 
-* 视频编码(video_codec) 
+ * 视频编码(video_codec) 
  # MPEG-1,MPEG-2,AVC,MPEG-4 Part 2,WMV,RealVideo
-* 音频编码(audio_codec) 
+ * 音频编码(audio_codec) 
  # MP3,AAC,AC3,Vorbis,WMA,RealAudio
-* 字幕格式(subtitle_format) 
+ * 字幕格式(subtitle_format) 
  # 内嵌,内封,外挂
-* 字幕语言(subtitle_lang) 
+ * 字幕语言(subtitle_lang) 
  # 简体中文
  # 繁体中文
  # 英语
  # 日语
-* 平台(software_platform) 
+ * 平台(software_platform) 
  # PC
  # Xbox360
  # PS3
@@ -43,12 +43,12 @@
 
 ==作为literature中的属性==
 
-* 来源(genre) 说明这段资源是取自那种发布媒介的 
+ * 来源(genre) 说明这段资源是取自那种发布媒介的 
  # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
  # 漫画/原版,翻译版
  # 游戏/,……?
  # 音乐/EAC,CDRip
-* 语言(language) 
+ * 语言(language) 
  # 简体中文
  # 繁体中文
  # 英语
@@ -58,8 +58,6 @@
 
 
 ----
-
-
 
 
 
