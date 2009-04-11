@@ -22,7 +22,7 @@
   # 音乐
   # 日剧
 
- * 类型(model)
+ * 介质(Media)
   #  TV
   #  Movie
   #  OVA
