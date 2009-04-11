@@ -23,9 +23,9 @@
   # 日剧
 
  * 类型(model)
-  # TV
-  # Movie
-  # OVA
+  #  TV
+  #  Movie
+  #  OVA
 
  * 格式(format) (MKV rmvb avi)
   # Video/Matroska,AVI,RealMedia,QuickTime,Ogg
