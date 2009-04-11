@@ -23,6 +23,12 @@
   # Audio/DTS,MP3,WMA,TTA,FLAC,AAC,Ogg,APE,TAK
   # Image/JPEG,PNG,GIF,BMP,TIFF
 
+ * 来源(genre) 说明这段资源是取自那种发布媒介的 
+  # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
+  # 漫画/原版,翻译版
+  # 游戏/,……?
+  # 音乐/EAC,CDRip
+
  * 视频编码(video_codec) 
   # MPEG-1,MPEG-2,AVC,MPEG-4 Part 2,WMV,RealVideo
 
@@ -50,11 +56,6 @@
 
 ==作为literature中的属性==
 
- * 来源(genre) 说明这段资源是取自那种发布媒介的 
-  # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
-  # 漫画/原版,翻译版
-  # 游戏/,……?
-  # 音乐/EAC,CDRip
 
  * 语言(language) 
   # 简体中文
