@@ -49,12 +49,6 @@
   # 日语
   # 韩语
 
- * 平台(software_platform) 
-  # PC
-  # Xbox360
-  # PS3
-  # PSP
-  # NDS
 
 
 ----
