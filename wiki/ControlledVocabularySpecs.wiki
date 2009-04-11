@@ -12,16 +12,20 @@
 
  * 分类(sort) - 可以是多级的
   # 动画
-  # 电影
   # 漫画
-  # 游戏
   # 音乐
-  # 其他
+  # 日剧
+
+ * 类型(model)
+  # TV
+  # Movie
+  # OVA
 
  * 格式(format) (MKV rmvb avi)
   # Video/Matroska,AVI,RealMedia,QuickTime,Ogg
   # Audio/DTS,MP3,WMA,TTA,FLAC,AAC,Ogg,APE,TAK
   # Image/JPEG,PNG,GIF,BMP,TIFF
+
 
  * 来源(genre) 说明这段资源是取自那种发布媒介的 
   # 动画/TVRip,HDTVRip,DVDRip,BDRip,DVDISO,BDISO,FLV(?)
