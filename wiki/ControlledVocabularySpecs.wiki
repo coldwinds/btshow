@@ -64,9 +64,9 @@
  * 原作名称
 
  * 类型
-  #TV
-  #OVA
-  #MOVIE
+  # TV
+  # OVA
+  # MOVIE
 
  * 第一原音
 
