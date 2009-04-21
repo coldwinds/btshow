@@ -1,0 +1,13 @@
+#搜索引擎功能介绍
+
+= Introduction =
+
+搜索引擎功能列表和搜索举例
+
+
+= 功能列表 =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
