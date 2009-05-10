@@ -36,8 +36,10 @@
 {{{ 
 火影忍者 recent:3 week 
 最近3周的发布的关键字包含"火影忍者"
-
 recent:13 day
+最近13天内
 recent:3 month
+最近3个月内
 recent:1 year
+最近1年内
 }}} 
