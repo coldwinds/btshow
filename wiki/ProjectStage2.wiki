@@ -35,5 +35,9 @@
  # 识别"最近"语义    
 {{{ 
 火影忍者 recent:3 week 
-最近3周的发布
+最近3周的发布的关键字包含"火影忍者"
+
+recent:13 day
+recent:3 month
+recent:1 year
 }}} 
