@@ -8,7 +8,14 @@
 
 = 详细内容 =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== 综合评分机制 ==
+每个月执行1次评分, 所有种子初始0分,
+判断下列条件:
+种子数 = 0 , -5分
+种子数 > 0 , +5分
+种子数 > 10 , +5分
+下载数 = 0 , -5分
+下载数 > 0 , +5分
+下载数 > 50 , +5分
+
+记录种子评分变化.
