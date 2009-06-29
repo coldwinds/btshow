@@ -7,3 +7,10 @@ p2pnow发布页和wiki互相调用的接口定义.
 
 
 = 接口列表 =
+
+获取番组
+请求url: http://xxx.com/rpc/getXXX.php?word=narto&format=json
+方式: get/post
+响应格式：json格式的对象或者xml
+响应字段：
+范例:
