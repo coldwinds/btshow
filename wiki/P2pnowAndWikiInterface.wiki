@@ -20,6 +20,9 @@ p2pnow发布页和wiki互相调用的接口定义.
 
 {{{
 范例:
+//返回json格式的匹配结果,word=火影忍者
+http://bangumi.tv/rpc/searchBgm.php?format=json&word=%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85
+
 }}}
 
 == 获取最近播放的番组 ==
