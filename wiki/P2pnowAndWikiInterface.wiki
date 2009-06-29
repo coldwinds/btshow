@@ -36,4 +36,6 @@ http://bangumi.tv/rpc/searchBgm.php?format=json&word=%E7%81%AB%E5%BD%B1%E5%BF%8D
 
 {{{
 范例:
+//返回最近播放的番组 xml格式
+http://bangumi.tv/rpc/recentBgm.php?format=xml
 }}}
