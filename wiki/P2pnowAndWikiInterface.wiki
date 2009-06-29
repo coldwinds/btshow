@@ -9,8 +9,7 @@ p2pnow发布页和wiki互相调用的接口定义.
 = 接口列表 =
 
 == 获取番组信息 ==
-|| 请求url || http://xxx.com/rpc/getXXX.php?word=narto&format=json
-http://xxx.com/rpc/getXXX.php?word=narto&format=xml ||
+|| 请求url || http://xxx.com/rpc/getXXX.php?word=narto&format=json  http://xxx.com/rpc/getXXX.php?word=narto&format=xml ||
 || 方式 ||  get/post ||
 || 响应格式 ||  根据format，返回json格式 或者 xml格式 ||
 || 响应字段 || ??? ||
