@@ -1,4 +1,4 @@
-#summary 数据库定义
+#summary 数据库结构定义
 #labels Phase-Design
 
 
@@ -8,7 +8,7 @@
 The prefix of the database is specified by user. Here we take `bhw_` as example.
 
 
-== 文体 ==
+== 内容 ==
 {{{
-待定
+施工中
 }}}
