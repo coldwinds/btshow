@@ -1,5 +1,5 @@
 #summary 搜索引擎功能介绍
-#labels Phase-Support
+#labels Phase-Support,Featured
 
 = Introduction =
 
