@@ -1,4 +1,5 @@
 #summary 搜索引擎功能介绍
+#labels 只读
 
 = Introduction =
 
