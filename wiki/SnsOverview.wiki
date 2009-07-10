@@ -1,12 +1,21 @@
 #summary 对组建sns的初步规划
+#labels Phase-Requirements
 
 = Introduction =
 
-Add your content here.
-test
+SNS的最初用户群应该是发布者(类似极享的设计)，而P2P资源的下载本身不应受到SNS注册之类的限制(保证一般访客的权益)
 
 
 = Details =
+
+几个对应关系：
+  # 发布资源 -> BlogPost    _可以配合Blog的一些特征来整合一些呈现的方式_
+  # 发布组 -> SNS小组功能    _方便组内部的沟通，初步的小组功能可以只包含DashBoard和ToDoList_
+  # 发布人 -> SNS用户    _拥有自己的空间，方便的操作自己的资源，可以看comment来了解伸手众的呼声_
+
+----
+
+暂时只想到这些东西，所以先编辑了下
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
