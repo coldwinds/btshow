@@ -1,14 +1,35 @@
 #summary 第三阶段特性列表
 #labels 编辑中
 
-= Introduction =
+1.Admin后台
 
-Add your content here.
+  * Base在BTMaster的后台功能
+  * 关联P2Pnow的新特性。（例如评论，静态缓存）
+  * 和U2或其他站点的关联接口管理
+
+2.eMule发布
+
+  * 发布页面
+  * 显示页面
+  * 列表页面
+  * 搜索页面
+
+3.高级搜索
+
+  * google的搜索提示功能
+  * 多种搜索方式
 
 
-= Details =
+4.个人用户的profile （从bangumi获得灵感）
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * 保存下载过种子的记录
+  * 保存发布的模板
+  * 保存发布过种子的记录（并引入积分）
+
+5.发布联盟的个性化页面
+
+  * 可以自定义/选择css界面
+  * 可以定义页面的logo
+  * 可以有自己的域名（这点未考虑周全，应为涉及到备案之类的事情）
+
+6.我要举报功能
