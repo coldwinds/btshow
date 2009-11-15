@@ -2,6 +2,12 @@
 
 = 以topic为核心的模型 =
 
+字幕组(team) 
+番(bangumi) 
+话题(topic) = 字幕组(team) + 番(bangumi)
+话题(topic) 一对多 bt资源(btdata)
+话题(topic) 一对多 em资源(emdata)
+
 = 标签功能 =
 
 = 节目表 =
