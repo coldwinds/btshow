@@ -1,12 +1,12 @@
 #summary 第四阶段特性列表
 
-= 以topic为核心的模型 =
-
-字幕组(team) 
-番(bangumi) 
-话题(topic) = 字幕组(team) + 番(bangumi)
-话题(topic) 一对多 bt资源(btdata)
-话题(topic) 一对多 em资源(emdata)
+= 模型修改 =
+以topic为核心,对模型做修改,模型关系如下:
+ * 字幕组(team) 
+ * 番(bangumi) 
+ * 话题(topic) 属于 字幕组(team) 且 属于 番(bangumi)
+ * 话题(topic) 包含多个 bt资源(btdata)
+ * 话题(topic) 包含多个 em资源(emdata)
 
 = 标签功能 =
 
