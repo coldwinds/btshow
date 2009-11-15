@@ -1,4 +1,4 @@
-#summary 第四阶段特性列表ProjectStage4
+#summary 第四阶段特性列表
 
 = 以topic为核心的模型 =
 
