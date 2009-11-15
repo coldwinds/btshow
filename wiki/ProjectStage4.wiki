@@ -12,8 +12,7 @@
 可以为以下模型添加标签
  * 话题(topic)
  * 番(bangumi) 
- * bt资源(btdata)
- * em资源(emdata)
+
 
 = 节目表 =
  显示上月,当月,下月的连载番(bangumi) 
