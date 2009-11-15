@@ -9,5 +9,10 @@
  * 话题(topic) 包含多个 em资源(emdata)
 
 = 标签功能 =
+可以为以下模型添加标签
+ * 话题(topic)
+ * 番(bangumi) 
+ * bt资源(btdata)
+ * em资源(emdata)
 
 = 节目表 =
