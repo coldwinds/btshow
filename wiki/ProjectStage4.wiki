@@ -1,18 +1,5 @@
 #summary 第四阶段特性列表
 
-= 模型修改 =
-以topic为核心,对模型做修改,模型关系如下:
- * 字幕组(team) 
- * 番(bangumi) 
- * 话题(topic) 属于 字幕组(team) 且 属于 番(bangumi)
- * 话题(topic) 包含多个 bt资源(btdata)
- * 话题(topic) 包含多个 em资源(emdata)
 
-= 标签功能 =
-可以为以下模型添加标签
- * 话题(topic)
- * 番(bangumi) 
+施工中...
 
-
-= 节目表 =
- 显示上月,当月,下月的连载番(bangumi) 
