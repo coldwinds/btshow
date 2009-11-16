@@ -1,4 +1,5 @@
 #summary 第二阶段特性列表
+#labels Deprecated
 
 = 第二阶段特性 =
 
