@@ -1,5 +1,5 @@
 #summary 第三阶段特性列表
-#labels 编辑中
+#labels Phase-Design
 
 == 管理员后台 ==
  # 系统管理
