@@ -23,6 +23,6 @@
  * 
 
 == 话题(topic) ==
- * 话题(topic) 属于 字幕组(team) 且 属于 番(bangumi)
+ * 话题(topic) 属于 字幕组(team) 且 属于 发布者(user) 且 属于 番(bangumi)
  * 话题(topic) 包含多个 bt资源(btdata)
  * 话题(topic) 包含多个 em资源(emdata)
